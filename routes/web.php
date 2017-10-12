@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Handles loading all routes for invoice controller
+Route::resource('invoices', 'InvoiceController');
