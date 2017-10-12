@@ -49,6 +49,16 @@
                 font-size: 84px;
             }
 
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -56,20 +66,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
+           <div class="content">
                 <div class="title m-b-md">
-                    Project 3
+                    P3 - Invoice Creator
+                </div>
+
+                <div class="links">
+                    <a href="/invoices">Index</a>
+                    <a href="/invoices/create">Create</a>
                 </div>
             </div>
         </div>
