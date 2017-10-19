@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        <link href="{{ url('css/app.css') }}" rel="stylesheet" type="text/css">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -68,7 +70,7 @@
         <div class="flex-center position-ref full-height">
            <div class="content">
                 <div class="title m-b-md">
-                    P3 - Invoice Creator
+                    <h1 class="red">P3 - Invoice Creator</h1>
                 </div>
 
                 <div class="links">
