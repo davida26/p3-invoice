@@ -14,11 +14,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        # Create first charge object show JSON output
-        \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
-        $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
-       
-        return $charge;
+        return view('invoice.index');
 
     }
 
@@ -29,7 +25,11 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-       return 'New Invoice';
+       # Create first charge object show JSON output
+        \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
+        $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
+       
+        dump($charge);
     }
 
     /**
@@ -49,9 +49,10 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id = null)
     {
-         return 'Show Invoice';
+         dump($id);
+         return view('invoice.index');
     }
 
     /**

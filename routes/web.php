@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 // Handles loading all routes for invoice controller
-Route::resource('invoices', 'InvoiceController');
+Route::resource('invoice', 'InvoiceController');
 
 Route::get('env', function () {
 	dump(config('app.name'));
