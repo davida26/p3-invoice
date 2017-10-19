@@ -16,10 +16,14 @@
         <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css"> 
     </head>
     <body>
-        
-		<section>
-			@yield('content')	
-		</section>
+        <div class="container">
+			<section>
+				@yield('content')	
+			</section>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
 		
     </body>
 </html>

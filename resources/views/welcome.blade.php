@@ -11,10 +11,12 @@
                     <h1 class="red">P3 - Invoice Creator</h1>
                 </div>
 
-                <div class="links">
+                <div class="links m-b-md">
+                    <a href="/login">Login Form</a>
                     <a href="/invoice">Invoice Index</a>
-                    <a href="/invoice/create">Stripe API Create Charge</a>
+                    <a href="/invoice/create">Stripe API - Create Charge</a>
                 </div>
+                <p class="text-center">Under Construction</p>
             </div>
         </div>
 @endsection
