@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Debugbar;
 
 class InvoiceController extends Controller
 {
@@ -13,7 +14,12 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        return 'Index Page For All Invoices';
+        # Create first charge object show JSON output
+        \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
+        $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
+       
+        return $charge;
+
     }
 
     /**
@@ -23,7 +29,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-         return 'New Invoice';
+       return 'New Invoice';
     }
 
     /**
