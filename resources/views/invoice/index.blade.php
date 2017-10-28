@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('title')
 	Invoice Index Page
@@ -14,7 +14,7 @@
 		<div class="content">
         	<h1>Invoice Index Page</h1>
         	<div class="links">
-                <a href="/">Home</a>
+                <a href="/">Return Home</a>
             </div>
         </div>
     </div>

@@ -29,7 +29,9 @@ class InvoiceController extends Controller
         \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
        
-        dump($charge);
+        return view('invoice.create')->with([
+            'charge' => $charge
+        ]);
     }
 
     /**
