@@ -12,7 +12,7 @@
                 <div class="panel-heading">Create Charge Response</div>
 
                 <div class="panel-body">
-                    <?php dump($charge); ?>
+                   {{ $charge }}
                 </div>
             </div>
         </div>

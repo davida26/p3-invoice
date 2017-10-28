@@ -28,7 +28,7 @@ class InvoiceController extends Controller
        # Create first charge object show JSON output
         \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
-       
+    
         return view('invoice.create')->with([
             'charge' => $charge
         ]);

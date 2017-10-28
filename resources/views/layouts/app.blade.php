@@ -17,7 +17,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -30,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name') }}
                     </a>
                 </div>
 
@@ -72,7 +72,36 @@
             </div>
         </nav>
 
-        @yield('content')
+        @auth
+        <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Clients</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Invoices</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings</a>
+                    </li>
+                    <li>
+                        <a href="#">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        <!-- /#sidebar-wrapper -->
+        @endauth
+        
+        <div id="page-content-wrapper">
+                    @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
