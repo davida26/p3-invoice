@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('title')
     Invoice Generator
@@ -7,8 +7,8 @@
 @section('content')
     <div class="flex-center position-ref full-height">
            <div class="content">
-                <div class="title m-b-md">
-                    <h1 class="red">P3 - Invoice Creator</h1>
+                <div class="title">
+                    <h1 class="red">P3 - InvoiceMe App</h1>
                 </div>
 
                 <div class="links m-b-md">
