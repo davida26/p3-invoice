@@ -11,5 +11,10 @@ Laravel application for creating simple invoices and receiving payments via Stri
 2. Edit .env variables on production
 3. Execute ```php artisan migrate``` to setup tables
 
+# Development
+
+1. Repeat steps 1-3 above
+2. Run ```npm install``` for Laravel Mix
+3. Run ```npm run dev``` to compile assets on developmentgit
 
 

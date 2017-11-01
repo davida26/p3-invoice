@@ -18,10 +18,13 @@ Route::get('/login', function () {
 	return view('login');
 });
 
+/**
+ * Index Page When Users are Not Logged in (Guests)
+ */
 Route::view('/', 'welcome')->middleware('guest');
 
 /**
- * Main Index
+ * Main Dashboard after Login
  */
 Route::get('/dashboard', 'HomeController@index');
 
@@ -29,6 +32,15 @@ Route::get('/dashboard', 'HomeController@index');
  * Invoice Routes
  */
 Route::resource('invoice', 'InvoiceController');
+
+Route::view('/test', 'client.create')->middleware('auth');
+Route::post('/client', 'ClientController@store');
+
+
+/**
+ * Client Routes
+ */
+// Route::resource('client', 'ClientController');
 
 Route::get('env', function () {
 	dump(config('app.name'));

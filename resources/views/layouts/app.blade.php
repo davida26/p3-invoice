@@ -30,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name') }}
+                        <strong>{{ config('app.name') }}</strong>
                     </a>
                 </div>
 
@@ -80,7 +80,7 @@
                         <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
                     </li>
                     <li>
-                        <a href="#">Clients</a>
+                        <a href="/test">Clients</a>
                     </li>
                     <li>
                         <a href="#">Services</a>

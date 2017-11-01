@@ -8406,16 +8406,12 @@ body {
   text-transform: uppercase;
 }
 
-.m-b-md {
-  margin-bottom: 30px;
-}
-
-.red {
-  color: red;
-}
-
 .navbar {
   margin-bottom: 0;
+}
+
+.col-md-offset-2-dash {
+  margin-left: 220px;
 }
 
 /*!
