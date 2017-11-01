@@ -1,3 +1,7 @@
+@section('title')
+Dashboard
+@endsection
+
 @extends('layouts.app')
 
 @section('content')

@@ -11,16 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+/**
+ * Login/Registration
+ */
 Route::get('/login', function () {
 	return view('login');
 });
 
+Route::view('/', 'welcome')->middleware('guest');
 
-// Handles loading all routes for invoice controller
+/**
+ * Main Index
+ */
+Route::get('/dashboard', 'HomeController@index');
+
+/**
+ * Invoice Routes
+ */
 Route::resource('invoice', 'InvoiceController');
 
 Route::get('env', function () {
@@ -31,5 +38,3 @@ Route::get('env', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
