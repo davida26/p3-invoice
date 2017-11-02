@@ -84,7 +84,7 @@
                         <a href="#">Invoices</a>
                     </li>
                     <li>
-                        <a href="#">Settings</a>
+                        <a href="/invoice/create">Stripe Test Charge</a>
                     </li>
                     <li>
                         <a href="#">Admin</a>

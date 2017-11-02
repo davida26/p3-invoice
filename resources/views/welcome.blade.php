@@ -12,9 +12,7 @@
                 </div>
 
                 <div class="links m-b-md">
-                    <a href="/login">Login Form</a>
-                    <a href="/invoice">Invoice Index</a>
-                    <a href="/invoice/create">Stripe API - Create Charge</a>
+                    Register or Login to Access Features
                 </div>
                 <p class="text-center">Under Construction</p>
             </div>

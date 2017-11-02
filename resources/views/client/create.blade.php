@@ -19,9 +19,9 @@ New Client
                             <input id="company" type="company" class="form-control" name="company" placeholder="Acme Corporation" value="{{ old('company') }}" autofocus>
                             @if ($errors->get('company'))
                             <span class="help-block">
-                                <ul>
+                                <ul class="no-indent">
                                     @foreach ($errors->get('company') as $error)
-                                        <li><strong>{{ $error }}</strong></li>
+                                    <li><strong>{{ $error }}</strong></li>
                                     @endforeach
                                 </ul>
                             </span>
@@ -58,9 +58,9 @@ New Client
                                 <input id="email" type="email" class="form-control" name="email" placeholder="First Name" value="{{ old('email') }}"  autofocus>
                                 @if ($errors->has('email'))
                                 <span class="help-block">
-                                    <ul>
+                                    <ul class="no-indent">
                                         @foreach ($errors->get('email') as $error)
-                                            <li><strong>{{ $error }}</strong></li>
+                                        <li><strong>{{ $error }}</strong></li>
                                         @endforeach
                                     </ul>
                                 </span>
@@ -81,7 +81,7 @@ New Client
                             <div class="col-md-12">
                                 <p><strong>Address</strong></p>
                             </div>
-                             <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }} col-md-12">
+                            <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }} col-md-12">
                                 <label for="address" class="control-label sr-only">Address</label>
                                 <input id="address" type="address" class="form-control" name="address" placeholder="24 Acme Rd NY, NY 10001" value="{{ old('address') }}"  autofocus>
                                 @if ($errors->has('address'))
@@ -96,7 +96,7 @@ New Client
                             <div class="col-md-12">
                                 <p><strong>Client Notes</strong></p>
                             </div>
-                             <div class="form-group {{ $errors->has('clientNotes') ? ' has-error' : '' }} col-md-12">
+                            <div class="form-group {{ $errors->has('clientNotes') ? ' has-error' : '' }} col-md-12">
                                 <label for="clientNotes" class="control-label sr-only">Client</label>
                                 <textarea id="clientNotes" type="clientNotes" class="form-control" name="clientNotes" placeholder="Enter a note for this client" value="{{ old('clientNotes') }}" autofocus></textarea>
                                 @if ($errors->has('clientNotes'))
@@ -108,7 +108,21 @@ New Client
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="form-inline">
+                                <div class="form-group {{ $errors->has('optin') ? ' has-error' : '' }} col-md-12">
+                                    <input id="optin" type="checkbox" class="optin" name="optin" placeholder="24 Acme Rd NY, NY 10001" value="{{ old('optin') }}">
+                                    <label for="optin" class="control-label">Subscribe to Emails?</label>
+                                    @if ($errors->has('optin'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('optin') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12">
                                 <input type="submit" value="Create" class="btn btn-primary btn-lg pull-right">
                             </div>
                         </div>
