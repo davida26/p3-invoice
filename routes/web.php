@@ -12,13 +12,6 @@
 */
 
 /**
- * Login/Registration
- */
-Route::get('/login', function () {
-	return view('login');
-});
-
-/**
  * Index Page When Users are Not Logged in (Guests)
  */
 Route::view('/', 'welcome')->middleware('guest');
@@ -33,8 +26,8 @@ Route::get('/dashboard', 'HomeController@index');
  */
 Route::resource('invoice', 'InvoiceController');
 
-Route::view('/test', 'client.create')->middleware('auth');
-Route::post('/client', 'ClientController@store');
+Route::view('/clients/create', 'client.create')->middleware('auth');
+Route::post('/clients/create', 'ClientController@store');
 
 
 /**

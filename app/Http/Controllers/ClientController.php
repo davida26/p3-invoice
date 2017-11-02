@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Client;
 
+use \Session;
+
 class ClientController extends Controller
 {
 	/**
-	 * @return string
-	 */
+	* @return string
+	*/
     public function index() {
     	return 'Clients Index Page';
     }
@@ -20,27 +22,11 @@ class ClientController extends Controller
         'company' => 'required|min:3',
         'firstName' => 'required',
         'lastName' => 'required',
-        'email' => 'required|email',
+        'email' => 'required|email|unique:clients,email',
         'phoneNumber' => 'required',
         'address' => 'required'
     	]);
     	Client::create($request->all());
-
-    	return redirect()->back();
+    	return redirect()->back()->with('success', 'Client Successfully Created');
     }
-    /**
-     * Create a new client instance.
-     *
-     * @param  array  $data
-     * @return \App\Client
-     */
-    // protected function create(array $data)
-    // {
-    //     return Client::create([
-    //         'firstName' => $data['firstName'],
-    //         'lastName' => $data['lastName'],
-    //         'email' => $data['email'],
-    //         'company' => $data['company'],
-    //     ]);
-    // }
 }

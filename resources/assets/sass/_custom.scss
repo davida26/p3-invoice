@@ -51,5 +51,15 @@ html, body {
 }
 
 .col-md-offset-2-dash{
-    margin-left: 220px;
+    margin-left: 200px;
 }
+
+.notification{
+    position: absolute;
+    top: 60px;
+    z-index: 1000;
+    right: 10px;
+}
+
+
+

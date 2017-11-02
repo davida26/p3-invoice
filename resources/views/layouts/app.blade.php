@@ -75,7 +75,7 @@
                         <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/test">Clients</a>
+                        <a href="/clients/create">Clients</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
@@ -93,6 +93,13 @@
             </div>
         <!-- /#sidebar-wrapper -->
         @endauth
+
+        @if(Session::has('success'))
+            <div class="alert alert-success col-md-2 notification alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{ Session::get('success') }}</strong>
+            </div>
+        @endif
         
         <div id="page-content-wrapper">
                     @yield('content')

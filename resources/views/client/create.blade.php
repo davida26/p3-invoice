@@ -11,7 +11,7 @@ New Client
                 <div class="panel-heading">Add New Client</div>
 
                 <div class="panel-body">
-                    <form method="POST" action="/client">
+                    <form method="POST" action="/clients/create">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('company') ? ' has-error' : '' }}">
@@ -19,7 +19,11 @@ New Client
                             <input id="company" type="company" class="form-control" name="company" placeholder="Acme Corporation" value="{{ old('company') }}" autofocus>
                             @if ($errors->get('company'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('company') }}</strong>
+                                <ul>
+                                    @foreach ($errors->get('company') as $error)
+                                        <li><strong>{{ $error }}</strong></li>
+                                    @endforeach
+                                </ul>
                             </span>
                             @endif
                         </div>
@@ -54,7 +58,11 @@ New Client
                                 <input id="email" type="email" class="form-control" name="email" placeholder="First Name" value="{{ old('email') }}"  autofocus>
                                 @if ($errors->has('email'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                    <ul>
+                                        @foreach ($errors->get('email') as $error)
+                                            <li><strong>{{ $error }}</strong></li>
+                                        @endforeach
+                                    </ul>
                                 </span>
                                 @endif
                             </div>
