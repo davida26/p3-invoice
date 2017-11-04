@@ -17,4 +17,10 @@ class AddNullableToClientsNotesField extends Migration
             $table->string('clientNotes')->nullable()->change();
         });
     }
+    public function down()
+    {
+        Schema::table('clients', function($table){
+            $table->dropColumn('clientNotes');
+        });
+    }
 }

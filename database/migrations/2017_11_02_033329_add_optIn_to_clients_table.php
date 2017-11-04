@@ -15,7 +15,13 @@ class AddOptInToClientsTable extends Migration
     {
         Schema::table('clients', function($table)
         {
-            $table->boolean('optin')->default('1');
+            $table->boolean('optin')->default('0');
+        });
+    }
+    public function down()
+    {
+        Schema::table('clients', function($table){
+            $table->dropColumn('optin');
         });
     }
 }

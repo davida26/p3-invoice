@@ -24,7 +24,7 @@ class ClientController extends Controller
         'lastName' => 'required',
         'email' => 'required|email|unique:clients,email',
         'phoneNumber' => 'required',
-        'address' => 'required'
+        'address' => 'required', 
     	]);
     	Client::create($request->all());
     	return redirect()->back()->with('success', 'Client Successfully Created');
