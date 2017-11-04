@@ -110,7 +110,7 @@ New Client
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group {{ $errors->has('optin') ? ' has-error' : '' }} col-md-12">
-                                    <input id="optin" type="checkbox" class="optin" name="optin" placeholder="24 Acme Rd NY, NY 10001" CHECKED>
+                                    <input id="optin" type="checkbox" class="optin" name="optin" value="1" CHECKED>
                                     <label for="optin" class="control-label">Subscribe to Emails?</label>
                                     @if ($errors->has('optin'))
                                     <span class="help-block">
