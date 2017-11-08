@@ -18,6 +18,7 @@ class ClientController extends Controller
     }
 
     public function store(Request $request) {
+
     	$this->validate($request, [
         'company' => 'required|min:3',
         'firstName' => 'required',
@@ -26,6 +27,7 @@ class ClientController extends Controller
         'phoneNumber' => 'required',
         'address' => 'required', 
     	]);
+
     	Client::create($request->all());
     	return redirect()->back()->with('success', 'Client Successfully Created');
     }

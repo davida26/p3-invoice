@@ -55,7 +55,7 @@ New Client
                         <div class="row">
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} col-md-6">
                                 <label for="email" class="control-label">Email</label>
-                                <input id="email" type="email" class="form-control" name="email" placeholder="First Name" value="{{ old('email') }}"  autofocus>
+                                <input id="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}"  autofocus>
                                 @if ($errors->has('email'))
                                 <span class="help-block">
                                     <ul class="no-indent">
@@ -110,13 +110,9 @@ New Client
                         <div class="row">
                             <div class="form-inline">
                                 <div class="form-group {{ $errors->has('optin') ? ' has-error' : '' }} col-md-12">
-                                    <input id="optin" type="checkbox" class="optin" name="optin" value="1" CHECKED>
+                                    <input type="hidden" name="optin" value="0">
+                                    <input type="checkbox" name="optin" value="1" CHECKED>
                                     <label for="optin" class="control-label">Subscribe to Emails?</label>
-                                    @if ($errors->has('optin'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('optin') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
                             </div>
                         </div>
