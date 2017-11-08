@@ -22,10 +22,10 @@ class ClientController extends Controller
 
     	$this->validate($request, [
         'company' => 'required|min:3',
-        'firstName' => 'required',
-        'lastName' => 'required',
+        'first_name' => 'required',
+        'last_name' => 'required',
         'email' => 'required|email|unique:clients,email',
-        'phoneNumber' => 'required',
+        'phone_number' => 'required',
         'address' => 'required', 
     	]);
 

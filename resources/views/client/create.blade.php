@@ -32,21 +32,21 @@ New Client
                             <div class="col-md-12">
                                 <p><strong>Primary Contact</strong></p>
                             </div>
-                            <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }} col-md-6">
-                                <label for="firstName" class="control-label sr-only">First Name</label>
-                                <input id="firstName" type="firstName" class="form-control" name="firstName" placeholder="First Name" value="{{ old('firstName') }}"  autofocus>
-                                @if ($errors->has('firstName'))
+                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }} col-md-6">
+                                <label for="first_name" class="control-label sr-only">First Name</label>
+                                <input id="first_name" type="first_name" class="form-control" name="first_name" placeholder="First Name" value="{{ old('first_name') }}"  autofocus>
+                                @if ($errors->has('first_name'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('firstName') }}</strong>
+                                    <strong>{{ $errors->first('first_name') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }} col-md-6">
-                                <label for="lastName" class="control-label sr-only">Last Name</label>
-                                <input id="lastName" type="lastName" class="form-control" name="lastName" placeholder="Last Name" value="{{ old('lastName') }}"  autofocus>
-                                @if ($errors->has('lastName'))
+                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} col-md-6">
+                                <label for="last_name" class="control-label sr-only">Last Name</label>
+                                <input id="last_name" type="last_name" class="form-control" name="last_name" placeholder="Last Name" value="{{ old('last_name') }}"  autofocus>
+                                @if ($errors->has('last_name'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('lastName') }}</strong>
+                                    <strong>{{ $errors->first('last_name') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -66,12 +66,12 @@ New Client
                                 </span>
                                 @endif
                             </div>
-                            <div class="form-group{{ $errors->has('phoneNumber') ? ' has-error' : '' }} col-md-6">
-                                <label for="phoneNumber" class="control-label">Phone Number</label>
-                                <input id="phoneNumber" type="phoneNumber" class="form-control" name="phoneNumber" placeholder="1234567890" value="{{ old('phoneNumber') }}"  autofocus>
-                                @if ($errors->has('phoneNumber'))
+                            <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }} col-md-6">
+                                <label for="phone_number" class="control-label">Phone Number</label>
+                                <input id="phone_number" type="phone_number" class="form-control" name="phone_number" placeholder="1234567890" value="{{ old('phone_number') }}"  autofocus>
+                                @if ($errors->has('phone_number'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('phoneNumber') }}</strong>
+                                    <strong>{{ $errors->first('phone_number') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -96,12 +96,12 @@ New Client
                             <div class="col-md-12">
                                 <p><strong>Client Notes</strong></p>
                             </div>
-                            <div class="form-group {{ $errors->has('clientNotes') ? ' has-error' : '' }} col-md-12">
-                                <label for="clientNotes" class="control-label sr-only">Client</label>
-                                <textarea id="clientNotes" type="clientNotes" class="form-control" name="clientNotes" placeholder="Enter a note for this client" value="{{ old('clientNotes') }}" autofocus></textarea>
-                                @if ($errors->has('clientNotes'))
+                            <div class="form-group {{ $errors->has('client_notes') ? ' has-error' : '' }} col-md-12">
+                                <label for="client_notes" class="control-label sr-only">Client</label>
+                                <textarea id="client_notes" type="client_notes" class="form-control" name="client_notes" placeholder="Enter a note for this client" value="{{ old('client_notes') }}" autofocus></textarea>
+                                @if ($errors->has('client_notes'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('clientNotes') }}</strong>
+                                    <strong>{{ $errors->first('client_notes') }}</strong>
                                 </span>
                                 @endif
                             </div>

@@ -24,7 +24,7 @@ New Client
 						<td>{{ $client->first_name }}</td>
 						<td>{{ $client->last_name }}</td>
 						<td>{{ $client->company }}</td>
-						<td>{{ $client->phone }}</td>
+						<td>{{ $client->phone_number }}</td>
 						<td>{{ $client->email }}</td>
 				</tr>
 				@endforeach
