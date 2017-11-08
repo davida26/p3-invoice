@@ -8432,6 +8432,8 @@ body {
 
 #page-content-wrapper {
   top: 50px;
+  max-width: 805px;
+  left: 250px;
 }
 
 /*!

@@ -14,7 +14,8 @@ class ClientController extends Controller
 	* @return string
 	*/
     public function index() {
-    	return 'Clients Index Page';
+    	$clients = Client::all();
+        return view('client.index', ["clients"=>$clients]);
     }
 
     public function store(Request $request) {

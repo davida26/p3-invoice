@@ -26,6 +26,8 @@ Route::get('/dashboard', 'HomeController@index');
  */
 Route::resource('invoice', 'InvoiceController');
 
+
+Route::get('/clients', 'ClientController@index');
 Route::view('/clients/create', 'client.create')->middleware('auth');
 Route::post('/clients/create', 'ClientController@store');
 

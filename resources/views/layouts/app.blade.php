@@ -75,7 +75,10 @@
                         <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/clients/create">Clients</a>
+                        <a href="/clients">View Clients</a>
+                    </li>
+                    <li>
+                        <a href="/clients/create">Add Client</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
