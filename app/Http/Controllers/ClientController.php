@@ -14,18 +14,21 @@ class ClientController extends Controller
 	* @return string
 	*/
     public function index() {
-    	return 'Clients Index Page';
+    	$clients = Client::all();
+        return view('client.index', ["clients"=>$clients]);
     }
 
     public function store(Request $request) {
+
     	$this->validate($request, [
         'company' => 'required|min:3',
-        'firstName' => 'required',
-        'lastName' => 'required',
+        'first_name' => 'required',
+        'last_name' => 'required',
         'email' => 'required|email|unique:clients,email',
-        'phoneNumber' => 'required',
+        'phone_number' => 'required',
         'address' => 'required', 
     	]);
+
     	Client::create($request->all());
     	return redirect()->back()->with('success', 'Client Successfully Created');
     }

@@ -8430,6 +8430,12 @@ body {
   vertical-align: text-bottom;
 }
 
+#page-content-wrapper {
+  top: 50px;
+  max-width: 805px;
+  left: 250px;
+}
+
 /*!
  * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
@@ -8463,6 +8469,7 @@ body {
   background: #025dba;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  top: 50px;
 }
 
 #wrapper.toggled #sidebar-wrapper {

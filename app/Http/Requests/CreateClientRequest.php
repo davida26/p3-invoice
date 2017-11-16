@@ -24,10 +24,10 @@ class CreateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstName' => 'required|min:2',
-            'lastName' => 'required',
+            'first_name' => 'required|min:2',
+            'last_name' => 'required',
             'company' => 'required',
-            'phoneNumber' => 'required',
+            'phone_number' => 'required',
             'address' => 'required',
             'email' =>'required',
         ];

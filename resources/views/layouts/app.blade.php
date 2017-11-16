@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
 
@@ -75,7 +75,10 @@
                         <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/clients/create">Clients</a>
+                        <a href="/clients">View Clients</a>
+                    </li>
+                    <li>
+                        <a href="/clients/create">Add Client</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
