@@ -18,6 +18,16 @@ class ClientController extends Controller
         return view('client.index', ["clients"=>$clients]);
     }
 
+    public function delete($id) {
+        $client->destroy($id);
+        return redirect()->back()->with('success', 'Client Successfully Deleted');
+    }
+
+    public function show($id)
+    {
+        $client = Client::find($id);
+    }
+
     public function store(Request $request) {
 
     	$this->validate($request, [

@@ -26,6 +26,8 @@ New Client
 						<td>{{ $client->company }}</td>
 						<td>{{ $client->phone_number }}</td>
 						<td>{{ $client->email }}</td>
+						<td><a href="clients/profile/{{ $client->id }}">View</a></td>
+						<td><a href="clients/{{ $client->id }}"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				@endforeach
 			 </tbody> 
