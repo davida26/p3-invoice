@@ -8432,7 +8432,6 @@ body {
 
 #page-content-wrapper {
   top: 50px;
-  max-width: 805px;
   left: 250px;
 }
 
@@ -8477,7 +8476,7 @@ body {
 }
 
 #page-content-wrapper {
-  width: 100%;
+  width: 80%;
   position: absolute;
   padding: 15px;
 }

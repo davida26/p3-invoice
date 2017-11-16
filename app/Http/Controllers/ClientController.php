@@ -15,7 +15,7 @@ class ClientController extends Controller
 	*/
     public function index() {
     	$clients = Client::all();
-        return view('client.index', ["clients"=>$clients]);
+        return view('clients.index', ["clients"=>$clients]);
     }
 
     public function delete($id) {
@@ -23,9 +23,23 @@ class ClientController extends Controller
         return redirect()->back()->with('success', 'Client Successfully Deleted');
     }
 
-    public function show($id)
-    {
-        $client = Client::find($id);
+    public function show($id) {
+        $client = Client::findOrFail($id);
+        return view('clients.show', ["client"=>$client]);
+    }
+
+    public function update(Request $request, Client $client) {
+        $client->update($request->all());
+        return redirect()->route('client.index')->with('success', 'Client Successfully Updated');
+    }
+
+    public function edit(Client $client) {
+        // $client = Client::findOrFail($id);
+        return view('clients.edit', ["client"=>$client]);
+    }
+
+    public function create() {
+         return view('clients.create');
     }
 
     public function store(Request $request) {
@@ -40,6 +54,6 @@ class ClientController extends Controller
     	]);
 
     	Client::create($request->all());
-    	return redirect()->back()->with('success', 'Client Successfully Created');
+    	return redirect()->route('clients.index')->with('success', 'Client Successfully Created');
     }
 }
