@@ -26,21 +26,12 @@ Route::get('/dashboard', 'HomeController@index');
  */
 Route::resource('invoice', 'InvoiceController');
 
-// Route::get('/clients', 'ClientController@index');
-
-// Route::view('/clients/create', 'clients.create')->middleware('auth');
-// To be tested
-
-Route::resource('clients', 'ClientController');
-Route::post('/clients/store', 'ClientController@store');
-// Route::delete('/clients/{{ $id }}', 'ClientController@delete');
-
-
-
 /**
  * Client Routes
  */
-// Route::resource('client', 'ClientController');
+Route::resource('clients', 'ClientController');
+Route::post('/clients/store', 'ClientController@store');
+
 
 Route::get('env', function () {
 	dump(config('app.name'));

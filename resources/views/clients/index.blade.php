@@ -7,7 +7,6 @@ New Client
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>#</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Company</th>
@@ -18,17 +17,19 @@ New Client
 		</thead>
 		<tbody> 
 			@foreach ($clients as $client)
-			<tr> 
-				<th scope="row">{{ $client->id }}</th>
+			<tr id="{{ $client->id }}"> 
 					<td>{{ $client->first_name }}</td>
 					<td>{{ $client->last_name }}</td>
 					<td>{{ $client->company }}</td>
 					<td>{{ $client->phone_number }}</td>
 					<td>{{ $client->email }}</td>
-					<td><a href="clients/{{ $client->id }}">View</a> | <a href="clients/{{ $client->id }}/edit">Edit</a> | <a href="clients/{{ $client->id }}/edit">Delete</a></td>
-					<td><a href="clients/{{ $client->id }}"><i class="fa fa-trash"></i></a></td>
+					<td><a href="clients/{{ $client->id }}">View</a> | <a href="clients/{{ $client->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
 			</tr>
 			@endforeach
 		 </tbody> 
 	</table>
 @endsection
+
+@push('scripts-footer')
+	<script type="text/javascript" src="{{ asset('js/ajaxDelete.js') }}"></script>
+@endpush

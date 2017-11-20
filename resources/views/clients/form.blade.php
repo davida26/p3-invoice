@@ -105,7 +105,7 @@
 
 <div class="row">
 	<div class="form-group col-md-12">
-		<input type="submit" value="Create" class="btn btn-primary btn-lg pull-right">
+		<input type="submit" value="{{ $button }}" class="btn btn-primary btn-lg pull-right">
 	</div>
 </div>
 </form>

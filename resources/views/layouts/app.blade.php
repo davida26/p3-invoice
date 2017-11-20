@@ -97,10 +97,10 @@
         <!-- /#sidebar-wrapper -->
         @endauth
 
-        @if(Session::has('success'))
+        @if(Session::has('alert'))
             <div class="alert alert-success col-md-2 notification alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>{{ Session::get('success') }}</strong>
+                <strong>{{ Session::get('alert') }}</strong>
             </div>
         @endif
         
@@ -110,6 +110,10 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
+
+@stack('scripts-footer')
