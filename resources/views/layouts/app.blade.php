@@ -67,45 +67,54 @@
             </div>
         </nav>
 
-        @auth
-        <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li>
-                        <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/clients">View Clients</a>
-                    </li>
-                    <li>
-                        <a href="/clients/create">Add Client</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Invoices</a>
-                    </li>
-                    <li>
-                        <a href="/invoice/create">Stripe Test Charge</a>
-                    </li>
-                    <li>
-                        <a href="#">Admin</a>
-                    </li>
-                </ul>
+        <div class="container-fluid">
+            <div class="row">
+                @auth
+                <!-- Sidebar -->
+                    <div class="col-sm-3 col-md-2 sidebar-wrapper">
+                        <ul class="nav sidebar-nav">
+                            <li>
+                                <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="/clients">View Clients</a>
+                            </li>
+                            <li>
+                                <a href="/clients/create">Add Client</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li>
+                                <a href="#">Invoices</a>
+                            </li>
+                            <li>
+                                <a href="/invoice/create">Stripe Test Charge</a>
+                            </li>
+                            <li>
+                                <a href="#">Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                <!-- /#sidebar-wrapper -->
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                @endauth
+                
+                @if(!Auth::check())
+                <div class="col-md-12">
+                @endif
+                    @if(Session::has('alert'))
+                        <div class="alert alert-success col-md-2 notification alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>{{ Session::get('alert') }}</strong>
+                        </div>
+                    @endif
+                
+                    <div id="page-content-wrapper">
+                                @yield('content')
+                    </div>
+                </div>
             </div>
-        <!-- /#sidebar-wrapper -->
-        @endauth
-
-        @if(Session::has('alert'))
-            <div class="alert alert-success col-md-2 notification alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>{{ Session::get('alert') }}</strong>
-            </div>
-        @endif
-        
-        <div id="page-content-wrapper">
-                    @yield('content')
         </div>
     </div>
 

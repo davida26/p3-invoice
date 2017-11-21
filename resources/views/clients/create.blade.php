@@ -4,10 +4,10 @@ New Client
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-default">
+        <div class="col-md-6 pull-left">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Add New Client</div>
 
                 <div class="panel-body">

@@ -50,10 +50,6 @@ html, body {
     margin-bottom: 0;
 }
 
-.col-md-offset-2-dash{
-    margin-left: 200px;
-}
-
 .notification{
     position: absolute;
     top: 60px;
@@ -72,8 +68,12 @@ html, body {
 
 #page-content-wrapper{
     top: 50px;
-    left: 250px;
+    position: relative;
 }
 
+
+.main{
+    margin-top: 10px;
+}
 
 
