@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Watson\Active\ActiveServiceProvider::class,
 
         /*
          * Application Service Providers...

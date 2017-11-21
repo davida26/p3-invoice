@@ -73,26 +73,23 @@
                 <!-- Sidebar -->
                     <div class="col-sm-3 col-md-2 sidebar-wrapper">
                         <ul class="nav sidebar-nav">
-                            <li>
-                                <a href="/" class="{{ (\Request::route()->getName() == 'this.route') ? 'active' : '' }}">Dashboard</a>
+                            <li class="{{ active('dashboard') }}">
+                                <a href="/">Dashboard</a>
                             </li>
-                            <li>
+                            <li class="{{ active('clients') }}">
                                 <a href="/clients">View Clients</a>
                             </li>
-                            <li>
+                            <li class="{{ active('clients.create') }}">
                                 <a href="/clients/create">Add Client</a>
                             </li>
-                            <li>
+                            <li class="{{ active('services/*') }}">
                                 <a href="#">Services</a>
                             </li>
-                            <li>
+                            <li class="{{ active('invoice') }}">
                                 <a href="#">Invoices</a>
                             </li>
-                            <li>
+                            <li class="{{ active('invoice.create*') }}">
                                 <a href="/invoice/create">Stripe Test Charge</a>
-                            </li>
-                            <li>
-                                <a href="#">Admin</a>
                             </li>
                         </ul>
                     </div>
