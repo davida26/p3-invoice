@@ -72,26 +72,7 @@
                 @auth
                 <!-- Sidebar -->
                     <div class="col-sm-3 col-md-2 sidebar-wrapper">
-                        <ul class="nav sidebar-nav">
-                            <li class="{{ active('dashboard') }}">
-                                <a href="/">Dashboard</a>
-                            </li>
-                            <li class="{{ active('clients') }}">
-                                <a href="/clients">View Clients</a>
-                            </li>
-                            <li class="{{ active('clients.create') }}">
-                                <a href="/clients/create">Add Client</a>
-                            </li>
-                            <li class="{{ active('services/*') }}">
-                                <a href="#">Services</a>
-                            </li>
-                            <li class="{{ active('invoice') }}">
-                                <a href="#">Invoices</a>
-                            </li>
-                            <li class="{{ active('invoice.create*') }}">
-                                <a href="/invoice/create">Stripe Test Charge</a>
-                            </li>
-                        </ul>
+                        @include('modules.sidebar')
                     </div>
                 <!-- /#sidebar-wrapper -->
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

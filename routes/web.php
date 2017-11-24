@@ -33,6 +33,8 @@ Route::resource('clients', 'ClientController');
 Route::post('/clients/store', 'ClientController@store');
 
 
+Route::resource('service', 'ServiceController');
+
 Route::get('env', function () {
 	dump(config('app.name'));
 	dump(config('app.env'));
