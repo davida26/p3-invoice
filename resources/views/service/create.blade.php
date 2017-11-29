@@ -9,11 +9,10 @@ New Service
         <div class="col-md-6 pull-left">
             <div class="panel panel-primary">
                 <div class="panel-heading">Add New Service</div>
-
                 <div class="panel-body">
-                    {{-- <form method="POST" action="/clients">
-                        @include('clients.form')
-                    </form> --}}
+                    <form method="POST" action="/service">
+                        @include('service.form')
+                    </form>
                 </div>
             </div>
         </div>

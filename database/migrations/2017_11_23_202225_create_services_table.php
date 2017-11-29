@@ -19,6 +19,8 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('sale_price', 10, 2);
+            $table->decimal('list_price', 10, 2);
+            $table->decimal('cost', 10, 2);
         });
     }
 

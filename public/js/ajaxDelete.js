@@ -68,50 +68,8 @@
 /***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+(function webpackMissingModule() { throw new Error("Cannot find module \"F:\\Harvard\\p3-invoice\\resources\\assets\\js\\ajaxDelete.js\""); }());
 
-
-/***/ }),
-
-/***/ 44:
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-	$('.deleteClient').on('click', function (e) {
-		e.preventDefault();
-		var id = $(this).parent().parent().attr('id');
-		swal({
-			title: "Are you sure?",
-			text: "This will permanently delete this client",
-			icon: "warning",
-			buttons: true,
-			dangerMode: true
-		}).then(function (willDelete) {
-			if (willDelete) {
-				deleteItem('clients', id);
-				swal("Client Deleted!", {
-					icon: "success"
-				});
-			} else {
-				swal("No Changes Made");
-			}
-		});
-	});
-});
-
-function deleteItem(name, id) {
-	$.ajax({
-		url: '/' + name + '/' + id,
-		data: {
-			"_token": $('meta[name="csrf-token"]').attr('content')
-		},
-		type: 'DELETE',
-		success: function success(result) {
-			$('#' + id).remove();
-			console.log('record deleted');
-		}
-	});
-}
 
 /***/ })
 

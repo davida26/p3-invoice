@@ -8,26 +8,27 @@ Services
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Options</th>
+				<th>List Price</th>
+				<th>Sale Price</th>
+				<th>Cost</th>
+				<th>Last Updated</th>
 				</tr> 
 		</thead>
 		<tbody> 
-			{{-- @foreach ($clients as $client)
-			<tr id="{{ $client->id }}"> 
-					<td>{{ $client->first_name }}</td>
-					<td>{{ $client->last_name }}</td>
-					<td>{{ $client->company }}</td>
-					<td>{{ $client->phone_number }}</td>
-					<td>{{ $client->email }}</td>
-					<td><a href="clients/{{ $client->id }}">View</a> | <a href="clients/{{ $client->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
+			@foreach ($services as $service)
+			<tr id="{{ $service->id }}"> 
+					<td>{{ $service->name }}</td>
+					<td>{{ $service->list_price }}</td>
+					<td>{{ $service->sale_price }}</td>
+					<td>{{ $service->cost }}</td>
+					<td>{{ $service->updated_at->diffForHumans() }}</td>
+					<td><a href="service/{{ $service->id }}">View</a> | <a href="service/{{ $service->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
 			</tr>
-			@endforeach --}}
+			@endforeach
 		 </tbody> 
 	</table>
 @endsection
 
 @push('scripts-footer')
-	<script type="text/javascript" src="{{ asset('js/ajaxDelete.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/delService.js') }}"></script>
 @endpush
