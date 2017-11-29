@@ -8435,6 +8435,17 @@ body {
   margin-top: 10px;
 }
 
+.panel-default > .panel-heading {
+  font-weight: bold;
+}
+
+.pg-heading {
+  margin-top: 0px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
 .sidebar-wrapper {
   z-index: 1000;
   position: fixed;
@@ -8483,7 +8494,6 @@ body {
 
 @media (min-width: 768px) {
   .sidebar-wrapper {
-    max-width: 250px;
     padding: 0px;
     display: block;
   }

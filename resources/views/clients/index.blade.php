@@ -4,6 +4,7 @@ New Client
 @endsection
 
 @section('content')
+<h2 class="pg-heading">Clients <a href="{{route('clients.create')}}" class="btn btn-success">New Client</a></h2>
 	<table class="table table-striped">
 		<thead>
 			<tr>

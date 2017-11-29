@@ -72,10 +72,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Service $service)
     {
         $button = 'Update Service';
-        return view('service.edit', ["button" => $button]);
+        return view('service.edit', ["button" => $button, "service"=>$service]);
     }
 
     /**
@@ -85,9 +85,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Service $service)
     {
-       $client->update($request->all());
+       $service->update($request->all());
        return redirect()->route('service.index')->with('alert', 'Service Successfully Updated');
     }
 
@@ -97,8 +97,8 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Client $client)
+    public function destroy(Request $request, Service $service)
     {
-        $client->delete();
+        $service->delete();
     }
 }

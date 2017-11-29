@@ -12,5 +12,6 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/ajaxDelete.js', 'public/js')
+   .js('resources/assets/js/delClient.js', 'public/js')
+   .js('resources/assets/js/delService.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

@@ -4,6 +4,7 @@ Services
 @endsection
 
 @section('content')
+	<h2 class="pg-heading">Services <a href="{{route('service.create')}}" class="btn btn-success">Add Service</a></h2>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -22,7 +23,7 @@ Services
 					<td>{{ $service->sale_price }}</td>
 					<td>{{ $service->cost }}</td>
 					<td>{{ $service->updated_at->diffForHumans() }}</td>
-					<td><a href="service/{{ $service->id }}">View</a> | <a href="service/{{ $service->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
+					<td><a href="service/{{ $service->id }}">View</a> | <a href="service/{{ $service->id }}/edit">Edit</a> | <a class="deleteService" href="#">Delete</a></td>
 			</tr>
 			@endforeach
 		 </tbody> 

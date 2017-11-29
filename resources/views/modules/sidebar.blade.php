@@ -5,9 +5,6 @@
 	<li class="{{ active('clients') }}">
 		<a href="/clients">Clients</a>
 	</li>
-	<li class="{{ active('clients.create') }}">
-		<a href="/clients/create">Add Client</a>
-	</li>
 	<li class="{{ active('services/*') }}">
 		<a href="/service">Services</a>
 	</li>
