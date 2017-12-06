@@ -35,6 +35,9 @@ Route::post('/clients/store', 'ClientController@store');
 
 Route::resource('service', 'ServiceController');
 
+Route::resource('settings', 'ConfigurationController' , ['except' => [
+    'destroy', 'show']]);
+
 Route::get('env', function () {
 	dump(config('app.name'));
 	dump(config('app.env'));

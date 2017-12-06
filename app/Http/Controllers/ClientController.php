@@ -8,6 +8,8 @@ use App\Client;
 
 use \Session;
 
+use App\Http\Requests\ValidateClient;
+
 class ClientController extends Controller
 {
 	/**
@@ -33,7 +35,7 @@ class ClientController extends Controller
         return view('clients.show', ["client"=>$client]);
     }
 
-    public function update(Request $request, Client $client) {
+    public function update(ValidateClient $request, Client $client) {
         $client->update($request->all());
         return redirect()->route('clients.index')->with('alert', 'Client Successfully Updated');
     }
@@ -43,22 +45,12 @@ class ClientController extends Controller
         return view('clients.edit', ["client"=>$client, "button"=>$button]);
     }
 
-    public function create() {
+    public function create(Client $client) {
         $button = 'Save Client';
-         return view('clients.create', ["button"=>$button]);
+        return view('clients.create', ["button"=>$button, "client"=>$client]);
     }
 
-    public function store(Request $request) {
-
-    	$this->validate($request, [
-        'company' => 'required|min:3',
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'email' => 'required|email|unique:clients,email',
-        'phone_number' => 'required',
-        'address' => 'required', 
-    	]);
-
+    public function store(ValidateClient $request) {
     	Client::create($request->all());
     	return redirect()->route('clients.index')->with('alert', 'Client Successfully Created');
     }

@@ -5,11 +5,14 @@
 	<li class="{{ active('clients') }}">
 		<a href="/clients">Clients</a>
 	</li>
-	<li class="{{ active('services/*') }}">
+	<li class="{{ active('service') }}">
 		<a href="/service">Services</a>
 	</li>
 	<li class="{{ active('invoice') }}">
 		<a href="#">Invoices</a>
+	</li>
+	<li class="{{ active('settings') }}">
+		<a href="/settings">Settings</a>
 	</li>
 	<li class="{{ active('invoice.create*') }}">
 		<a href="/invoice/create">Stripe Test Charge</a>
