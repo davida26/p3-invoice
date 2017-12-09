@@ -1,20 +1,17 @@
 @extends('layouts.app')
 
 @section('title')
-	Create Charge
+	New Invoice
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Create Charge Response</div>
-
-                <div class="panel-body">
-                   {{ $charge }}
-                </div>
-            </div>
+        <div class="col-md-8">
+            <h2 class="pg-heading">New Invoice</h1>
+            <form method="POST" action="/invoice">
+                @include('invoice.form')
+            </form>
         </div>
     </div>
 </div>

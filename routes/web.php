@@ -30,11 +30,15 @@ Route::resource('invoice', 'InvoiceController');
  * Client Routes
  */
 Route::resource('clients', 'ClientController');
-Route::post('/clients/store', 'ClientController@store');
 
-
+/**
+ * Service Routes
+ */
 Route::resource('service', 'ServiceController');
 
+/**
+ * Settings Routes
+ */
 Route::resource('settings', 'ConfigurationController' , ['except' => [
     'destroy', 'show']]);
 

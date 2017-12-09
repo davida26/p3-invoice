@@ -9,7 +9,7 @@
 		<a href="/service">Services</a>
 	</li>
 	<li class="{{ active('invoice') }}">
-		<a href="#">Invoices</a>
+		<a href="/invoice">Invoices</a>
 	</li>
 	<li class="{{ active('settings') }}">
 		<a href="/settings">Settings</a>
