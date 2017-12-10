@@ -12,6 +12,9 @@ use App\Http\Requests\ValidateClient;
 
 class ClientController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
 	/**
 	* @return string
 	*/
@@ -22,7 +25,6 @@ class ClientController extends Controller
 
     public function destroy(Request $request, Client $client) {
         $client->delete();
-        // return redirect()->back()->with('alert', 'Client Successfully Deleted');
     }
 
     public function show($id) {

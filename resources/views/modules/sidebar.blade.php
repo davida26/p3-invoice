@@ -1,20 +1,17 @@
 <ul class="nav sidebar-nav">
 	<li class="{{ active('dashboard') }}">
-		<a href="/">Dashboard</a>
+		<a href="/"><i class="fas fa-tasks" aria-hidden="true"></i> Dashboard</a>
 	</li>
 	<li class="{{ active('clients') }}">
-		<a href="/clients">Clients</a>
+		<a href="/clients"><i class="fas fa-users"></i> Clients</a>
 	</li>
 	<li class="{{ active('service') }}">
-		<a href="/service">Services</a>
+		<a href="/service"><i class="fas fa-gavel" aria-hidden="true"></i> Services</a>
 	</li>
 	<li class="{{ active('invoice') }}">
-		<a href="/invoice">Invoices</a>
+		<a href="/invoice"><i class="fas fa-file-alt"></i> Invoices</a>
 	</li>
 	<li class="{{ active('settings') }}">
-		<a href="/settings">Settings</a>
-	</li>
-	<li class="{{ active('invoice.create*') }}">
-		<a href="/invoice/create">Stripe Test Charge</a>
+		<a href="/settings"><i class="fas fa-cog" aria-hidden="true"></i> Settings</a>
 	</li>
 </ul>

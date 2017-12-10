@@ -10,8 +10,11 @@ use \Session;
 
 class ConfigurationController extends Controller
 {
-    public function index()
-    {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    public function index() {
     	// checks to see if record exists or creates it, backup if ConfigurationSeeder fails
     	$settings = Configuration::firstOrCreate([
     		'id' => '1',],
@@ -26,8 +29,7 @@ class ConfigurationController extends Controller
         return view('config.index', ["settings" => $settings]);
     }
 
-    public function edit($id, Configuration $configuration)
-    {
+    public function edit($id, Configuration $configuration) {
     	$settings = Configuration::find($id);
         return view('config.edit', ["setting" => $settings]);
     }
@@ -39,10 +41,8 @@ class ConfigurationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request, Configuration $configuration)
-    {
+    public function update($id, Request $request, Configuration $configuration) {
        Configuration::find($id)->update($request->all());
-       // dd($request->all());
        return redirect()->route('settings.index')->with('alert', 'Settings Successfully Updated');
     }
 }

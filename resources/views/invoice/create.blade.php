@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
-            <h2 class="pg-heading">New Invoice</h1>
+            <h2 class="pg-heading" style="text-align: right;">Invoice</h1>
             <form method="POST" action="/invoice">
                 @include('invoice.form')
             </form>

@@ -8,13 +8,15 @@ use App\Service;
 
 class ServiceController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the services available.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $services = Service::all();
         return view('service.index', ["services" => $services]);
     }
@@ -24,8 +26,7 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         $button = "Save Service";
         return view('service.create', ["button" => $button]);
     }
@@ -36,8 +37,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $this->validate($request, [
             'name' => 'required|min: 5',
             'description' => 'required|min: 10',
@@ -56,8 +56,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $service = Service::find($id);
 
         if(!$service) {
@@ -72,8 +71,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
-    {
+    public function edit(Service $service) {
         $button = 'Update Service';
         return view('service.edit', ["button" => $button, "service"=>$service]);
     }
@@ -85,8 +83,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
-    {
+    public function update(Request $request, Service $service) {
        $service->update($request->all());
        return redirect()->route('service.index')->with('alert', 'Service Successfully Updated');
     }
@@ -97,8 +94,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Service $service)
-    {
+    public function destroy(Request $request, Service $service) {
         $service->delete();
     }
 }

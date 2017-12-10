@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Debugbar;
 
 class InvoiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return view('invoice.index');
 
     }
@@ -23,8 +25,7 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
 
         $company = 'test';
        # Create first charge object show JSON output
@@ -43,8 +44,7 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         return 'Invoice Stored';
     }
 
@@ -54,9 +54,11 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id = null)
-    {
-         dump($id);
+    public function show($id) {
+        $invoice = Invoice::find($id);
+        if(!$invoice) {
+            return redirect()->route('invoice.index')->with('alert', 'Invoice Not Found');
+        }
          return view('invoice.index');
     }
 
@@ -66,8 +68,7 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
          return 'Edit invoice';
     }
 
@@ -78,8 +79,7 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
          return 'Update Invoice';
     }
 
@@ -89,8 +89,7 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
          return 'Delete Invoice';
     }
 }
