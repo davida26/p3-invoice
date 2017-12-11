@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Configuration;
+
 class InvoiceController extends Controller
 {
     public function __construct()
@@ -27,14 +29,14 @@ class InvoiceController extends Controller
      */
     public function create() {
 
-        $company = 'test';
+        $setting = Configuration::find(1);
+
        # Create first charge object show JSON output
         \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
         
-        return view('invoice.create')->with([
-            'charge' => $charge
-        ]);
+        // dd($setting);
+        return view('invoice.create')->with(['setting' => $setting]);
 
     }
 

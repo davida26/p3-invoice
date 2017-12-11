@@ -23,7 +23,6 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<h3 class="pg-heading">Services</h3>
 		<table class="table table-striped">
 	        <thead>
 	            <tr>
@@ -174,7 +173,7 @@
 	        	</tr>
 	        	<tr>
 	        		<td colspan="4">
-	        			<p class="addService">Add Service</p>
+	        			<p class="add-service text-center"><i class="fas fa-plus-square"></i> Add Service</p>
 	        		</td>
 	        	</tr>
 	        </tbody>

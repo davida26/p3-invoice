@@ -8445,6 +8445,68 @@ body {
   margin-bottom: 5px;
 }
 
+.invoice-wrp {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 15px 0px;
+}
+
+.company-information {
+  margin-bottom: 15px;
+}
+
+.company-footer {
+  background-color: #f6f6f6;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.company-footer h3 {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #888;
+}
+
+.stripe-msg {
+  font-size: 10px !important;
+  margin-top: 5px;
+  color: #888 !important;
+}
+
+.stripe-msg .fab {
+  font-size: 16px;
+  vertical-align: bottom;
+}
+
+.terms-info h3,
+.due-date h3,
+.total-due h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.due-date p {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.total-due p {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 10px;
+  color: #025dba;
+}
+
+.add-service {
+  font-weight: bold;
+  margin: 10px auto;
+}
+
+.invoice-number {
+  font-weight: bold;
+  color: #025dba;
+}
+
 .sidebar-wrapper {
   z-index: 1000;
   position: fixed;
