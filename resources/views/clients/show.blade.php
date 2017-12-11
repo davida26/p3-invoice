@@ -15,6 +15,7 @@
                 	<p>Phone Number: {{ $client->phone_number }}</p>
                 	<p>Address: {{ $client->address }}</p>
                 	<p>Notes: {{ $client->client_notes }}</p>
+                    <p>Last Updated By: {{ $last_updated_by }}</p>
                 	<a href="/clients/{{ $client->id }}/edit" class="btn btn-primary">Edit</a>
                 </div>
             </div>

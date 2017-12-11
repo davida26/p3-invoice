@@ -33,12 +33,15 @@ class ClientController extends Controller
 
     public function show($id) {
         $client = Client::find($id);
+        $user = User::find($client->user_id);
+
+        $last_updated_by = $user->name;
 
         if (!$client) {
             return redirect()->route('clients.index')->with('alert', 'Client Not Found');
         }
 
-        return view('clients.show', ["client"=>$client]);
+        return view('clients.show', ["client"=>$client, "last_updated_by"=>$last_updated_by]);
     }
 
     public function update(ValidateClient $request, Client $client) {
