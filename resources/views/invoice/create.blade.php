@@ -24,7 +24,7 @@
                 @include('invoice.form')
             </form>
 			
-			<div class="row company-footer">
+			<div class="row grey-bg">
 				<div class="col-md-4 terms-info">
 					<h3>Terms</h3>
 					<p> Terms section here must be loaded from the settings page configuration.</p>
@@ -38,6 +38,12 @@
 					<p class="text-center">$ 2500.17</p>
 					<a href="#" class="btn btn-success btn-lg center-block"><i class="fas fa-lock"></i> Pay Invoice</a>
 					<p class="stripe-msg text-center">Payments Secured by <i class="fab fa-cc-stripe"></i></p>
+				</div>
+			</div>
+
+			<div class="row grey-bg closing-section">
+				<div class="col-md-12 text-center">
+					{{ $setting->support_email}} <i class="fas fa-bolt"></i> website.com {{-- {{ $setting->website }} --}}
 				</div>
 			</div>
         </div>
