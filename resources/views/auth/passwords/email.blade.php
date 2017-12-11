@@ -1,10 +1,13 @@
 @extends('layouts.app')
+@section('title')
+    Reset Password
+@endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+        <div class="col-md-4 col-md-offset-4 auth-box">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Reset Password</div>
 
                 <div class="panel-body">

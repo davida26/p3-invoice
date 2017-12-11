@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Client;
 
+use App\User;
+
 use \Session;
+
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests\ValidateClient;
 
@@ -38,6 +42,7 @@ class ClientController extends Controller
     }
 
     public function update(ValidateClient $request, Client $client) {
+        $client->user_id = Auth::id();
         $client->update($request->all());
         return redirect()->route('clients.index')->with('alert', 'Client Successfully Updated');
     }
@@ -53,7 +58,21 @@ class ClientController extends Controller
     }
 
     public function store(ValidateClient $request) {
-    	Client::create($request->all());
+
+        $client = new Client;
+        $client->user_id = Auth::id();
+        $client->company = $request->company;
+        $client->first_name = $request->first_name;
+        $client->last_name = $request->last_name;
+        $client->email = $request->email;
+        $client->phone_number = $request->phone_number;  
+        $client->address = $request->address;
+        $client->client_notes = $request->client_notes;  
+        $client->optin = $request->optin;
+        $client->save();
+
+
+    	// Client::create($request->all());
     	return redirect()->route('clients.index')->with('alert', 'Client Successfully Created');
     }
 }

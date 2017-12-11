@@ -77,6 +77,7 @@ module.exports = __webpack_require__(45);
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+
 	$('.deleteClient').on('click', function (e) {
 		e.preventDefault();
 		var id = $(this).parent().parent().attr('id');

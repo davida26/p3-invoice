@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$('.deleteClient').on('click', function(e){
 		e.preventDefault();
 		var id = $(this).parent().parent().attr('id');

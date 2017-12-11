@@ -979,6 +979,7 @@ module.exports = __webpack_require__(43);
  */
 
 __webpack_require__(11);
+__webpack_require__(73);
 
 window.Vue = __webpack_require__(35);
 
@@ -42750,6 +42751,43 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    $(".alert").fadeOut(5000);
+});
 
 /***/ })
 /******/ ]);
