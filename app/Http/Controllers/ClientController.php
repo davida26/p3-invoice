@@ -16,22 +16,26 @@ use App\Http\Requests\ValidateClient;
 
 class ClientController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
-	/**
-	* @return string
-	*/
-    public function index() {
-    	$clients = Client::all();
+    /**
+    * @return string
+    */
+    public function index()
+    {
+        $clients = Client::all();
         return view('clients.index', ["clients"=>$clients]);
     }
 
-    public function destroy(Request $request, Client $client) {
+    public function destroy(Request $request, Client $client)
+    {
         $client->delete();
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $client = Client::find($id);
         $user = User::find($client->user_id);
 
@@ -44,38 +48,32 @@ class ClientController extends Controller
         return view('clients.show', ["client"=>$client, "last_updated_by"=>$last_updated_by]);
     }
 
-    public function update(ValidateClient $request, Client $client) {
+    public function update(ValidateClient $request, Client $client)
+    {
         $client->user_id = Auth::id();
         $client->update($request->all());
         return redirect()->route('clients.index')->with('alert', 'Client Successfully Updated');
     }
 
-    public function edit(Client $client) {
+    public function edit(Client $client)
+    {
         $button = 'Update Client';
         return view('clients.edit', ["client"=>$client, "button"=>$button]);
     }
 
-    public function create(Client $client) {
+    public function create(Client $client)
+    {
         $button = 'Save Client';
         return view('clients.create', ["button"=>$button, "client"=>$client]);
     }
 
-    public function store(ValidateClient $request) {
+    public function store(ValidateClient $request)
+    {
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        Client::create($data);
 
-        $client = new Client;
-        $client->user_id = Auth::id();
-        $client->company = $request->company;
-        $client->first_name = $request->first_name;
-        $client->last_name = $request->last_name;
-        $client->email = $request->email;
-        $client->phone_number = $request->phone_number;  
-        $client->address = $request->address;
-        $client->client_notes = $request->client_notes;  
-        $client->optin = $request->optin;
-        $client->save();
-
-
-    	// Client::create($request->all());
-    	return redirect()->route('clients.index')->with('alert', 'Client Successfully Created');
+        // Client::create($request->all());
+        return redirect()->route('clients.index')->with('alert', 'Client Successfully Created');
     }
 }

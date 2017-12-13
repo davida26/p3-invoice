@@ -9,6 +9,12 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function client()
+    {
+        # User has many Clients
+        return $this->hasMany('App\Client');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

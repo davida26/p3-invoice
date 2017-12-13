@@ -17,9 +17,9 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         return view('invoice.index');
-
     }
 
     /**
@@ -27,17 +27,16 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-
+    public function create()
+    {
         $setting = Configuration::find(1);
 
-       # Create first charge object show JSON output
+        # Create first charge object show JSON output
         \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
         
         // dd($setting);
         return view('invoice.create')->with(['setting' => $setting]);
-
     }
 
     /**
@@ -46,7 +45,8 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         return 'Invoice Stored';
     }
 
@@ -56,12 +56,13 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         $invoice = Invoice::find($id);
-        if(!$invoice) {
+        if (!$invoice) {
             return redirect()->route('invoice.index')->with('alert', 'Invoice Not Found');
         }
-         return view('invoice.index');
+        return view('invoice.index');
     }
 
     /**
@@ -70,8 +71,9 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-         return 'Edit invoice';
+    public function edit($id)
+    {
+        return 'Edit invoice';
     }
 
     /**
@@ -81,8 +83,9 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-         return 'Update Invoice';
+    public function update(Request $request, $id)
+    {
+        return 'Update Invoice';
     }
 
     /**
@@ -91,7 +94,8 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-         return 'Delete Invoice';
+    public function destroy($id)
+    {
+        return 'Delete Invoice';
     }
 }

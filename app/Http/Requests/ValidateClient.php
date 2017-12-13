@@ -27,14 +27,13 @@ class ValidateClient extends FormRequest
      */
     public function rules(Request $request)
     {
- 
         return [
             'company' => 'required|min:3',
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'email' => 'required|email|unique:clients,id,'.$this->get('id'),
-            'phone_number' => 'required',
-            'address' => 'required', 
+            'phone_number' => 'required|numeric',
+            'address' => 'required',
         ];
     }
 }
