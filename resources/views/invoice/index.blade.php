@@ -9,6 +9,7 @@ View Invoices
         <thead>
             <tr>
                 <th>Invoice No</th>
+                <th>Company</th>
                 <th>Client</th>
                 <th>Due On</th>
                 <th>Invoice Total</th>
@@ -19,8 +20,9 @@ View Invoices
             @foreach ($invoices as $invoice)
             <tr id="{{ $invoice->id }}"> 
                 <td><a href="invoice/{{ $invoice->id }}">A100{{ $invoice->id }}</a></td>
+                <td>{{ $invoice->client->company }}</td>
                 <td>{{ $invoice->client->first_name }} {{ $invoice->client->last_name }}</td>
-                <td>{{ $invoice->due_date }}</td>
+                <td>{{ date('F d, Y', strtotime($invoice->due_date)) }}</td>
                 <td>$ {{ $invoice->invoice_total }}</td>
                 <td><a href="invoice/{{ $invoice->id }}">View</a> | <a href="invoice/{{ $invoice->id }}/edit">Edit</a> | <a class="deleteInvoice" href="#">Delete</a></td>
             </tr>

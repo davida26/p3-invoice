@@ -89,7 +89,7 @@ $(document).ready(function () {
 			dangerMode: true
 		}).then(function (willDelete) {
 			if (willDelete) {
-				deleteItem('invoices', id);
+				deleteItem('invoice', id);
 				swal("Invoice Deleted!", {
 					icon: "success"
 				});

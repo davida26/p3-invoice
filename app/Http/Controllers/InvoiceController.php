@@ -10,6 +10,8 @@ use App\Configuration;
 
 use App\Service;
 
+use App\Client;
+
 class InvoiceController extends Controller
 {
     public function __construct()
@@ -36,11 +38,21 @@ class InvoiceController extends Controller
     public function create()
     {
         $setting = Configuration::find(1);
+    
+        $serviceList = Service::getServices();
 
+        $clientList = Client::getClients();
+
+        $button = "Create Invoice";
         // # Create first charge object show JSON output
         // \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         // $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
-        return view('invoice.create')->with(['setting' => $setting]);
+        return view('invoice.create')->with([
+            'setting' => $setting,
+            'serviceList' => $serviceList,
+            'clientList' => $clientList,
+            'button' => $button
+        ]);
     }
 
     /**
@@ -51,7 +63,21 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Invoice Stored';
+        $this->validate($request, [
+            'client_id' => 'required|numeric',
+            'service_id' => 'required|numeric',
+            'due_date' => 'required|date',
+            'invoice_total' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $data = Invoice::create($data);
+
+        $data->services()->sync($request->service_id);
+
+
+        return redirect()->route('invoice.index')->with('alert', 'Invoice Successfully Created');
     }
 
     /**
@@ -67,8 +93,6 @@ class InvoiceController extends Controller
 
         $dueDate = date('F d, Y', strtotime($invoice->due_date));
 
-        // $serviceList = Service::getServices();
-
         if (!$invoice) {
             return redirect()->route('invoice.index')->with('alert', 'Invoice Not Found');
         }
@@ -81,9 +105,31 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Invoice $invoice)
     {
-        return 'Edit invoice';
+        $setting = Configuration::find(1);
+    
+        $serviceList = Service::getServices();
+
+        $clientList = Client::getClients();
+
+        $selectedClient = $invoice->client->id;
+
+        $selectedService = $invoice->services()->where('invoice_id', $invoice->id)->first();
+
+        $button = "Update Invoice";
+        // # Create first charge object show JSON output
+        // \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
+        // $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
+        return view('invoice.edit')->with([
+            'setting' => $setting,
+            'serviceList' => $serviceList,
+            'clientList' => $clientList,
+            'button' => $button,
+            'invoice' => $invoice,
+            'selectedClient' => $selectedClient,
+            'selectedService' => $selectedService->id
+        ]);
     }
 
     /**
@@ -93,9 +139,23 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        return 'Update Invoice';
+        $this->validate($request, [
+            'client_id' => 'required|numeric',
+            'service_id' => 'required|numeric',
+            'due_date' => 'required|date',
+            'invoice_total' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $data = Invoice::create($data);
+
+        $data->services()->sync($request->service_id);
+
+
+        return redirect()->route('invoice.index')->with('alert', 'Invoice Successfully Updated');
     }
 
     /**
@@ -104,8 +164,16 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Invoice $invoice)
+    public function destroy($id)
     {
+        $invoice = Invoice::find($id);
+
+        if (!$invoice) {
+            return redirect('/invoice')->with('alert', 'Invoice Not Found');
+        }
+
+        $invoice->services()->detach();
+
         $invoice->delete();
     }
 }

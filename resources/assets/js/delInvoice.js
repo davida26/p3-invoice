@@ -12,7 +12,7 @@ $(document).ready(function(){
 		})
 		.then((willDelete) => {
 		  if (willDelete) {
-		  	deleteItem('invoices', id );
+		  	deleteItem('invoice', id );
 		    swal("Invoice Deleted!", {
 		      icon: "success",
 		    });

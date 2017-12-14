@@ -8460,16 +8460,17 @@ body {
 .invoice-wrp {
   border: 1px solid #eee;
   border-radius: 10px;
-  padding: 10px 15px 0px;
+  padding: 15px 15px 0px;
 }
 
 .company-information {
   margin-bottom: 15px;
+  padding: 5px 15px;
 }
 
 .grey-bg {
   background-color: #f6f6f6;
-  padding: 10px 0px;
+  padding: 10px 15px;
 }
 
 .company-footer h3 {
@@ -8523,6 +8524,24 @@ body {
 
 .closing-section {
   border-top: 1px solid #eee;
+}
+
+.service-items {
+  padding: 0 15px;
+}
+
+.new-tag {
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  vertical-align: top;
+  padding: 10px;
+  border-radius: 2px;
+  /* IE 9 */
+  -webkit-transform: rotate(-15deg);
+  /* Safari 3-8 */
+  transform: rotate(-15deg);
+  position: absolute;
 }
 
 .dash-items ol {

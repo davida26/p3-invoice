@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+    public static function getClients()
+    {
+        $clients = Client::orderBy('company')->get();
+
+        $clientList = [];
+
+        foreach ($clients as $client) {
+            $clientList[$client['id']] = $client->company;
+        }
+
+        return $clientList;
+    }
+
     public function user()
     {
         # Client belongs to user

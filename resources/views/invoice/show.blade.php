@@ -11,7 +11,7 @@ Invoice A100{{ $invoice->id}}
             <h1 class="pg-heading">Invoice</h1>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-            <h2 class="pg-heading invoice-number">#A100{{ $invoice->id}}</h2>
+            <h1 class="pg-heading invoice-number">#A100{{ $invoice->id}}</h1>
         </div>
     </div>
 
@@ -32,7 +32,7 @@ Invoice A100{{ $invoice->id}}
         </div>
     </div>
 
-    <div class="row">
+    <div class="row service-items">
         <div class="col-md-12">
             <table class="table table-striped">
                 <thead>
