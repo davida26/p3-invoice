@@ -35,9 +35,9 @@ class InvoiceController extends Controller
     {
         $setting = Configuration::find(1);
 
-        # Create first charge object show JSON output
-        \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
-        $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
+        // # Create first charge object show JSON output
+        // \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
+        // $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
         
         // dd($setting);
         return view('invoice.create')->with(['setting' => $setting]);

@@ -28,3 +28,7 @@ View Invoices
          </tbody> 
     </table>
 @endsection
+
+@push('scripts-footer')
+    <script type="text/javascript" src="{{ asset('js/delInvoice.js') }}"></script>
+@endpush
