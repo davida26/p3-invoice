@@ -22,7 +22,7 @@ View Invoices
                 <td>{{ $invoice->client->first_name }} {{ $invoice->client->last_name }}</td>
                 <td>{{ $invoice->due_date }}</td>
                 <td>$ {{ $invoice->invoice_total }}</td>
-                <td><a href="invoice/{{ $invoice->id }}">View</a> | <a href="invoice/{{ $invoice->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
+                <td><a href="invoice/{{ $invoice->id }}">View</a> | <a href="invoice/{{ $invoice->id }}/edit">Edit</a> | <a class="deleteInvoice" href="#">Delete</a></td>
             </tr>
             @endforeach
          </tbody> 

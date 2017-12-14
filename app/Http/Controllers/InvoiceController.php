@@ -38,8 +38,6 @@ class InvoiceController extends Controller
         // # Create first charge object show JSON output
         // \Stripe\Stripe::setApiKey('sk_test_BNgNBLD75ASaONXdYM7aPVoq');
         // $charge = \Stripe\Charge::create(array('amount' => 100, 'currency' => 'usd', 'customer' => 'cus_BbhI1CinF1WePp' ));
-        
-        // dd($setting);
         return view('invoice.create')->with(['setting' => $setting]);
     }
 
@@ -93,13 +91,13 @@ class InvoiceController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified client from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Invoice $invoice)
     {
-        return 'Delete Invoice';
+        $invoice->delete();
     }
 }
