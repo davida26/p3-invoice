@@ -8,6 +8,8 @@ use App\Invoice;
 
 use App\Configuration;
 
+use App\Service;
+
 class InvoiceController extends Controller
 {
     public function __construct()
@@ -61,10 +63,16 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $invoice = Invoice::with('client')->find($id);
+        $setting = Configuration::find(1);
+
+        $dueDate = date('F d, Y', strtotime($invoice->due_date));
+
+        // $serviceList = Service::getServices();
+
         if (!$invoice) {
             return redirect()->route('invoice.index')->with('alert', 'Invoice Not Found');
         }
-        return view('invoice.show', ["invoice"=>$invoice]);
+        return view('invoice.show', ["invoice" => $invoice, 'setting' => $setting, 'dueDate'=>$dueDate]);
     }
 
     /**

@@ -19,7 +19,7 @@ class InvoiceServiceTableSeeder extends Seeder
         $invoices = [
             '1' => ['1', '2'],
             '2' => ['3', '4'],
-            '3' => ['4' ,'1'],
+            '3' => ['4', '1'],
         ];
 
         $count = count($invoices);

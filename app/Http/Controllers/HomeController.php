@@ -23,7 +23,7 @@ class HomeController extends Controller
     
     public function index()
     {
-        $invoices = Invoice::orderBy('updated_at', 'desc')->limit(10)->get();
+        $invoices = Invoice::orderBy('updated_at', 'desc')->with('client')->limit(10)->get();
         $clients = Client::orderBy('updated_at', 'desc')->limit(10)->get();
         $services = Service::orderBy('updated_at', 'desc')->limit(10)->get();
         return view('dashboard')->with(['clients'=>$clients, 'services'=>$services, 'invoices'=>$invoices]);
