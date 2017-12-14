@@ -14,6 +14,7 @@ Service
                 	<p>Cost: {{ $service->cost }}</p>
                 	<p>Description: {{ $service->description }}</p>
                 	<a href="/service/{{ $service->id }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="/service" class="btn btn-default">View All</a>
                 </div>
             </div>
         </div>

@@ -12,27 +12,19 @@ View Invoices
                 <th>Client</th>
                 <th>Due On</th>
                 <th>Invoice Total</th>
-                <th>Paid?</th>
+                <th>Options</th>
                 </tr> 
         </thead>
         <tbody> 
-           {{--  @foreach ($clients as $client)
-            <tr id="{{ $client->id }}"> 
-                    <td>{{ $client->first_name }}</td>
-                    <td>{{ $client->last_name }}</td>
-                    <td>{{ $client->company }}</td>
-                    <td>{{ $client->phone_number }}</td>
-                    <td>{{ $client->email }}</td>
-                    <td><a href="clients/{{ $client->id }}">View</a> | <a href="clients/{{ $client->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
+            @foreach ($invoices as $invoice)
+            <tr id="{{ $invoice->id }}"> 
+                <td><a href="invoice/{{ $invoice->id }}">A100{{ $invoice->id }}</a></td>
+                <td>{{ $invoice->client->first_name }} {{ $invoice->client->last_name }}</td>
+                <td>{{ $invoice->due_date }}</td>
+                <td>$ {{ $invoice->invoice_total }}</td>
+                <td><a href="invoice/{{ $invoice->id }}">View</a> | <a href="invoice/{{ $invoice->id }}/edit">Edit</a> | <a class="deleteClient" href="#">Delete</a></td>
             </tr>
-            @endforeach --}}
-            <tr>
-                <td><a href="#">124862</a></td>
-                <td>Acme Corporation</td>
-                <td>12/17/2018</td>
-                <td>$500.00</td>
-                <td>No</td>
-            </tr>
+            @endforeach
          </tbody> 
     </table>
 @endsection
