@@ -17,6 +17,7 @@
                 	<p>Notes: {{ $client->client_notes }}</p>
                     <p>Last Updated By: {{ $last_updated_by }}</p>
                 	<a href="/clients/{{ $client->id }}/edit" class="btn btn-primary">Edit</a>
+                    <a href="/clients" class="btn btn-default">View All</a>
                 </div>
             </div>
         </div>

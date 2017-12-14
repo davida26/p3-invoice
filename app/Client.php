@@ -12,6 +12,11 @@ class Client extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function invoice()
+    {
+        return $this->hasMany('App\Invoice');
+    }
+
     /**
     * The attributes that should be hidden for arrays.
     *
