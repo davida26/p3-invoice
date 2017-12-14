@@ -7,7 +7,7 @@
 			<select id="client_id" class="form-control" name="client_id">
 				<option value="" selected="selected" disabled="disabled">Select a Client</option>
 				@foreach ($clientList as $id => $company)
-					<option value="{{$id}}" {{ isset($selectedClient) == $id ? 'selected="selected"' : ''}}>{{ $company or old('company') }}</option>
+					<option value="{{$id}}" @isset($selectedClient){{ $selectedClient  == $id ? 'selected="selected"' : ''}}@endisset>{{ $company or old('company') }}</option>
 				@endforeach
 			</select>
 			@if ($errors->has('client_id'))
@@ -44,7 +44,7 @@
 							<select id="service_id" class="form-control" name="service_id">
 								<option value="" selected="selected" disabled="disabled">Select a service</option>
 								@foreach ($serviceList as $id => $name)
-								<option value="{{ $id or old('id') }}" {{ isset($selectedService) == $id ? 'selected="selected"' : '' }}>{{ $name or old('name') }}</option>
+								<option value="{{ $id or old('id') }}" @isset($selectedService){{ $selectedService == $id ? 'selected="selected"' : '' }}@endisset>{{ $name or old('name') }}</option>
 								@endforeach
 							</select>
 							@if ($errors->has('service_id'))
