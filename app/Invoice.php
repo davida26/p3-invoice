@@ -12,6 +12,11 @@ class Invoice extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function services()
+    {
+        return $this->belongsToMany('App\Service')->withTimestamps();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
