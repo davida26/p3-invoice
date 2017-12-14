@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Client;
+use App\Service;
+
 class HomeController extends Controller
 {
     /**
@@ -19,6 +22,8 @@ class HomeController extends Controller
     
     public function index()
     {
-        return view('dashboard');
+        $clients = Client::orderBy('updated_at', 'desc')->limit(10)->get();
+        $services = Service::orderBy('updated_at', 'desc')->limit(10)->get();
+        return view('dashboard')->with(['clients'=>$clients, 'services'=>$services]);
     }
 }

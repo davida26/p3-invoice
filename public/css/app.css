@@ -8445,6 +8445,18 @@ body {
   margin-bottom: 5px;
 }
 
+.shadow {
+  -webkit-box-shadow: 1px 2px 3px #eee;
+          box-shadow: 1px 2px 3px #eee;
+}
+
+.btn .shadow:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .invoice-wrp {
   border: 1px solid #eee;
   border-radius: 10px;
@@ -8511,6 +8523,21 @@ body {
 
 .closing-section {
   border-top: 1px solid #eee;
+}
+
+.dash-items ol {
+  padding-left: 20px;
+}
+
+.dash-items ol a {
+  text-decoration: none;
+}
+
+.dash-items ol li {
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar-wrapper {

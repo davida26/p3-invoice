@@ -86,3 +86,11 @@ html, body {
     margin-bottom: 5px;
 }
 
+.shadow{
+    box-shadow: 1px 2px 3px #eee;
+}
+
+.btn .shadow:hover{
+    transition: 1s;
+    box-shadow: none;
+}
