@@ -91,6 +91,29 @@
 </div>
 
 <div class="row">
+	<div class="form-group{{ $errors->has('website') ? ' has-error' : '' }} col-md-6">
+		<label for="website" class="control-label">Website</label>
+		<input id="website" type="website" class="form-control" name="website" placeholder="123456789" value="{{ $setting->website or old('website') }}"  autofocus>
+		@if ($errors->has('website'))
+		<span class="help-block">
+			<strong>{{ $errors->first('website') }}</strong>
+		</span>
+		@endif
+	</div>
+	<div class="form-group{{ $errors->has('show_tax_id') ? ' has-error' : '' }} col-md-6">
+		<label for="show_tax_id" class="control-label">
+		<input type="hidden" id="show_tax_id" name="show_tax_id"  value="0">
+		<input id="show_tax_id" type="checkbox" name="show_tax_id" {{ $setting->show_tax_id ? 'CHECKED' : '' }} value="1">
+		Show Company Tax ID on Invoices?</label>
+		@if ($errors->has('show_tax_id'))
+		<span class="help-block">
+			<strong>{{ $errors->first('show_tax_id') }}</strong>
+		</span>
+		@endif
+	</div>
+</div>
+
+<div class="row">
 	<div class="form-group col-md-12">
 		<input type="submit" value="Save Settings" class="btn btn-primary btn-lg pull-right">
 	</div>

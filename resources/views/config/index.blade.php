@@ -38,6 +38,14 @@ Settings
 	    					<th scope="row">Company Logo</th>
 	    					<td><a href="{{ $settings->logo }}" target="_blank">{{ $settings->logo }}</a></td>
     					</tr>
+                        <tr>
+                            <th scope="row">Website</th>
+                            <td>{{ $settings->website }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Show TAX ID on Invoices?</th>
+                            <td>@if($settings->show_tax_id) Yes @else No  @endif</td>
+                        </tr>
     		</tbody>
     	</table>
     	<a href="/settings/1/edit" class="btn btn-primary">Edit Settings</a>

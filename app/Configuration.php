@@ -12,6 +12,6 @@ class Configuration extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address', 'logo', 'phone', 'billing_email', 'support_email', 'tax_id',
+        'name', 'address', 'logo', 'phone', 'billing_email', 'support_email', 'tax_id', 'show_tax_id', 'website',
     ];
 }

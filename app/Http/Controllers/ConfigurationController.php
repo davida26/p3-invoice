@@ -27,9 +27,12 @@ class ConfigurationController extends Controller
             'phone' => '6461112346',
             'billing_email' => 'billing@domain.com',
             'support_email' => 'support@domain.com',
-            'tax_id' => '123456789'
+            'tax_id' => '123456789',
+            'website' => 'website.com',
+            'show_tax_id' => 1
         ]
         );
+
         return view('config.index', ["settings" => $settings]);
     }
 
