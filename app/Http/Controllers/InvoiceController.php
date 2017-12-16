@@ -71,6 +71,7 @@ class InvoiceController extends Controller
         ]);
 
         $data = $request->all();
+        $data['due_date'] = date('Y/m/d', strtotime($request->due_date));
 
         $data = Invoice::create($data);
 

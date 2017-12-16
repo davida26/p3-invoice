@@ -103,6 +103,13 @@ class ServiceController extends Controller
      */
     public function destroy(Request $request, Service $service)
     {
+        // $service = Service::find($id);
+
+        if (!$service) {
+            return redirect('/invoice')->with('alert', 'Invoice Not Found');
+        }
+
+        $service->invoices()->detach();
         $service->delete();
     }
 }

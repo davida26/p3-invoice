@@ -1,3 +1,7 @@
+@push('styles-header')
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css"></link>
+@endpush
+
 {{ csrf_field() }} 
 <div class="row company-information">
 	<div class="col-md-6 col-sm-6 col-xs-6">
@@ -77,16 +81,15 @@
 	</div>
 	<div class="col-md-4 due-date">
 		<h3>Due By</h3>
-		<div class="form-group">
-			<input type="date" class="form-control" placeholder="Select Due Date" name="due_date" value="{{ $invoice->due_date or old('due_date') }}">
+		<div id="datepicker" class="form-group date">
+			<input type="text" class="form-control" placeholder="Select Due Date" name="due_date" value="{{ $invoice->due_date or old('due_date') }}">
 			@if ($errors->has('due_date'))
 			<span class="help-block">
 				<strong>{{ $errors->first('due_date') }}</strong>
 			</span>
 			@endif
-			<br>
-			<input type="submit" value="{{ $button }}" class="btn btn-primary btn-block btn-lg">
 		</div>
+		<input type="submit" value="{{ $button }}" class="btn btn-primary btn-block btn-lg">
 	</div>
 
 	<div class="col-md-4 total-due">
@@ -103,4 +106,7 @@
 	</div>
 </div>
 
-
+@push('scripts-footer')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+	<script src="{{ asset('js/getClientService.js') }}"></script>
+@endpush

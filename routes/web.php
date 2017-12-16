@@ -29,7 +29,8 @@ Route::resource('invoice', 'InvoiceController');
 /**
  * Client Routes
  */
-Route::resource('clients', 'ClientController');
+Route::resource('clients', 'ClientController' , ['except' => [
+    'destroy']]);
 
 /**
  * Service Routes

@@ -13,10 +13,10 @@ class ClientsTableSeeder extends Seeder
     public function run()
     {
         $clients = [
-            ['Cool Company A', 'Joe', 'Smith', 'joe@cool.com', '6461112323', '1 Cool Way NY, NY 10001', 'One Cool Guy', '1', '1'],
-            ['Stark Industries', 'Tony', 'Stark', 'tony@starkindustries.com', '64612342323', '1 Stark Drive Stark, Stark CA 90215', 'Ironman', '1', '1'],
-            ['Google', 'Larry', 'Page', 'larry@google.com', '123456789', '1 Google Circle, Mountainview CA 12345', 'Founder of Google', '0', '1'],
-            ['Cool Company B', 'Mary', 'Smith', 'mary@coolb.com', '487526354', '1 Cooler Way Beverly Hills, CA 90210', 'One Cool Chick', '1', '1'],
+            ['Cool Company A', 'Joe', 'Smith', 'joe@cool.com', '6461112323', '1 Cool Way NY, NY 10001', 'One Cool Guy', '1', '1', '1'],
+            ['Stark Industries', 'Tony', 'Stark', 'tony@starkindustries.com', '64612342323', '1 Stark Drive Stark, Stark CA 90215', 'Ironman', '1', '1', '1'],
+            ['Google', 'Larry', 'Page', 'larry@google.com', '123456789', '1 Google Circle, Mountainview CA 12345', 'Founder of Google', '0', '1', '1'],
+            ['Cool Company B', 'Mary', 'Smith', 'mary@coolb.com', '487526354', '1 Cooler Way Beverly Hills, CA 90210', 'One Cool Chick', '1', '1', '0'],
         ];
 
         $count = count($clients);
@@ -34,6 +34,7 @@ class ClientsTableSeeder extends Seeder
                 'client_notes' => $client[6],
                 'optin' => $client[7],
                 'user_id' => $client[8],
+                'status' => $client[9],
             ]);
             $count--;
         }

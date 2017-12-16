@@ -8,6 +8,8 @@ use App\Client;
 
 use App\User;
 
+Use App\Invoice;
+
 use \Session;
 
 use Illuminate\Support\Facades\Auth;
@@ -29,10 +31,13 @@ class ClientController extends Controller
         return view('clients.index', ["clients"=>$clients]);
     }
 
-    public function destroy(Request $request, Client $client)
-    {
-        $client->delete();
-    }
+    // Dangerous to remove a client where invoices have been created. Historical record must remain.
+    // Adding a new column called Status:Active/Inactive boolean to "deactivate" old clients
+    // public function destroy(Request $request, Client $client)
+    // {
+    //     $client->invoice()->onDelete('cascade');
+    //     $client->delete();
+    // }
 
     public function show($id)
     {

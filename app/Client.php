@@ -43,6 +43,6 @@ class Client extends Model
     * @var array`
     */
     protected $fillable = [
-        'first_name', 'last_name', 'company', 'email', 'address', 'phone_number', 'client_notes', 'optin', 'user_id',
+        'first_name', 'last_name', 'company', 'email', 'address', 'phone_number', 'client_notes', 'optin', 'user_id', 'status',
     ];
 }

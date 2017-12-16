@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/fontawesome.css": "/css/fontawesome.css",
+    "/js/getClientService.js": "/js/getClientService.js",
     "/js/delService.js": "/js/delService.js",
     "/js/delInvoice.js": "/js/delInvoice.js",
     "/js/delClient.js": "/js/delClient.js"

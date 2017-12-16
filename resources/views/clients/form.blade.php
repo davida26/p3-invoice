@@ -102,6 +102,14 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="form-group col-md-12">
+		<label for="status" class="control-label">
+		<input type="hidden" id="status" name="status"  value="0">
+		<input id="status" type="checkbox" name="status" {{ $client->status ? 'CHECKED' : '' }} value="1">
+		Activate Client</label>
+	</div>
+</div>
 
 <div class="row">
 	<div class="form-group col-md-12">
