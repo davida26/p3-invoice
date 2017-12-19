@@ -177,4 +177,16 @@ class InvoiceController extends Controller
 
         $invoice->delete();
     }
+
+    public function getClient($id)
+    {
+        $client = Client::find($id)->toJson();
+        return $client;
+    }
+
+    public function getService($id)
+    {
+        $service = Service::find($id)->toJson();
+        return $service;
+    }
 }

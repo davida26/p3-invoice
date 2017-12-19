@@ -76,7 +76,27 @@ module.exports = __webpack_require__(52);
 /***/ 52:
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'F:\\Harvard\\p3-invoice\\resources\\assets\\js\\getClientService.js'\n    at Error (native)");
+$('#client_id').change(function () {
+	var value = this.value;
+	var source = '/client/' + value;
+	$.ajax(source, {
+		success: function success(data) {
+			var json = JSON.parse(data);
+			console.log(json['first_name']);
+			$('.client-name').html(json['first_name'] + ' ' + json['last_name']);
+			$('.client-address').html(json['address']);
+			$('.client-email').html(json['email']);
+			$('.client-phone').html(json['phone_number']);
+		},
+		error: function error() {
+			console.log('error');
+		}
+	});
+});
+
+$('#datepicker input').datepicker({
+	todayBtn: "linked"
+});
 
 /***/ })
 

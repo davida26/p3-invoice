@@ -1,5 +1,5 @@
 @push('styles-header')
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css"></link>
 @endpush
 
 {{ csrf_field() }} 
@@ -11,7 +11,7 @@
 			<select id="client_id" class="form-control" name="client_id">
 				<option value="" selected="selected" disabled="disabled">Select a Client</option>
 				@foreach ($clientList as $id => $company)
-					<option value="{{$id}}" @isset($selectedClient){{ $selectedClient  == $id ? 'selected="selected"' : ''}}@endisset>{{ $company or old('company') }}</option>
+				<option value="{{$id}}" @isset($selectedClient){{ $selectedClient  == $id ? 'selected="selected"' : ''}}@endisset>{{ $company or old('company') }}</option>
 				@endforeach
 			</select>
 			@if ($errors->has('client_id'))
@@ -19,6 +19,12 @@
 				<strong>{{ $errors->first('client_id') }}</strong>
 			</span>
 			@endif
+			<div class="client-data">
+				<p class="client-name"></p>
+				<p class="client-address"></p>
+				<p class="client-email"></p>
+				<p class="client-phone"></p>
+			</div>
 		</div>
 	</div>
 	<div class="col-md-offset-3 col-md-3 col-sm-3 col-xs-3 text-right">
@@ -107,6 +113,6 @@
 </div>
 
 @push('scripts-footer')
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="{{ asset('js/getClientService.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script src="{{ asset('js/getData.js') }}"></script>
 @endpush

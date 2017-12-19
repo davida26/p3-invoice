@@ -8544,6 +8544,11 @@ body {
   position: absolute;
 }
 
+#client_id {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
 .dash-items ol {
   padding-left: 20px;
 }
