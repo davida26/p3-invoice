@@ -70,6 +70,7 @@ class InvoiceController extends Controller
             'invoice_total' => 'required'
         ]);
 
+
         $data = $request->all();
         $data['due_date'] = date('Y/m/d', strtotime($request->due_date));
 
@@ -77,8 +78,7 @@ class InvoiceController extends Controller
 
         $data->services()->sync($request->service_id);
 
-
-        return redirect()->route('invoice.index')->with('alert', 'Invoice Successfully Created');
+        return redirect()->route('invoice.show', $data->id)->with('alert', 'Invoice Successfully Created');
     }
 
     /**
@@ -156,7 +156,7 @@ class InvoiceController extends Controller
         $data->services()->sync($request->service_id);
 
 
-        return redirect()->route('invoice.index')->with('alert', 'Invoice Successfully Updated');
+        return redirect()->route('invoice.show', $data->id)->with('alert', 'Invoice Successfully Updated');
     }
 
     /**

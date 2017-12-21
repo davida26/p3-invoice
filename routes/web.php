@@ -33,6 +33,7 @@ Route::resource('clients', 'ClientController' , ['except' => [
     'destroy']]);
 
 Route::get('/client/{id}', 'InvoiceController@getClient');
+Route::get('/getservice/{id}', 'InvoiceController@getService');
 
 /**
  * Service Routes

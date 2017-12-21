@@ -9,9 +9,9 @@
 		<div class="form-group{{ $errors->has('client_id') ? ' has-error' : '' }}" > 
 			<label for="client_id" class="control-label sr-only">Client</label>
 			<select id="client_id" class="form-control" name="client_id">
-				<option value="" selected="selected" disabled="disabled">Select a Client</option>
+				<option value="" selected="selected" disabled="disabled" hidden>Select a Client</option>
 				@foreach ($clientList as $id => $company)
-				<option value="{{$id}}" @isset($selectedClient){{ $selectedClient  == $id ? 'selected="selected"' : ''}}@endisset>{{ $company or old('company') }}</option>
+				<option value="{{$id}}" @isset($selectedClient){{ $selectedClient == $id ? 'selected="selected"' : ''}}@endisset {{ old('client_id') == $id ? 'selected="selected"' : '' }}>{{ $company or old('company') }}</option>
 				@endforeach
 			</select>
 			@if ($errors->has('client_id'))
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-offset-3 col-md-3 col-sm-3 col-xs-3 text-right">
+	<div class="col-md-offset-3 col-md-3 col-sm-6 col-xs-6 text-right">
 		<h2>{{ $setting->name}}</h2>
 		<p>{{ $setting->address}}</p>
 		<p>{{ $setting->billing_email}}</p>
@@ -49,12 +49,12 @@
 			<tbody> 
 				<tr>
 					<td>
-						<div class="form-group{{ $errors->has('service') ? ' has-error' : '' }}" > 
+						<div class="form-group{{ $errors->has('service_id') ? ' has-error' : '' }}" > 
 							<label for="service_id" class="control-label sr-only">Service</label>
 							<select id="service_id" class="form-control" name="service_id">
 								<option value="" selected="selected" disabled="disabled">Select a service</option>
 								@foreach ($serviceList as $id => $name)
-								<option value="{{ $id or old('id') }}" @isset($selectedService){{ $selectedService == $id ? 'selected="selected"' : '' }}@endisset>{{ $name or old('name') }}</option>
+								<option value="{{ $id or old('id') }}" @isset($selectedService){{ $selectedService == $id ? 'selected="selected"' : '' }}@endisset {{ old('service_id') == $id ? 'selected="selected"' : '' }}>{{ $name or old('name') }}</option>
 								@endforeach
 							</select>
 							@if ($errors->has('service_id'))
@@ -65,13 +65,13 @@
 						</div>
 					</td>
 					<td>
-						Filled On Save
+						<p class="service-description"></p>
 					</td>
 					<td>
-						Filled On Save
+						<p class="service-rate"></p>
 					</td>
 					<td>
-						For Next Release - temp value on creation
+						Variable
 					</td>
 				</tr>
 			</tbody>
@@ -87,7 +87,7 @@
 	</div>
 	<div class="col-md-4 due-date">
 		<h3>Due By</h3>
-		<div id="datepicker" class="form-group date">
+		<div id="datepicker" class="form-group date {{ $errors->has('due_date') ? ' has-error' : '' }}">
 			<input type="text" class="form-control" placeholder="Select Due Date" name="due_date" value="{{ $invoice->due_date or old('due_date') }}">
 			@if ($errors->has('due_date'))
 			<span class="help-block">
@@ -100,7 +100,7 @@
 
 	<div class="col-md-4 total-due">
 		<h3>Total Due</h3>
-		<div class="form-group">
+		<div class="form-group {{ $errors->has('invoice_total') ? ' has-error' : '' }}">
 			<label for="list_price" class="control-label sr-only">Invoice Total</label>
 			<input id="invoice_total" type="text" class="form-control" name="invoice_total" placeholder="100.00" value="{{ $invoice->invoice_total or old('invoice_total') }}"  autofocus>
 			@if ($errors->has('invoice_total'))

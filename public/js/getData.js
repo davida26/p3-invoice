@@ -76,6 +76,10 @@ module.exports = __webpack_require__(52);
 /***/ 52:
 /***/ (function(module, exports) {
 
+$('#datepicker input').datepicker({
+	todayBtn: "linked"
+});
+
 $('#client_id').change(function () {
 	var value = this.value;
 	var source = '/client/' + value;
@@ -89,13 +93,25 @@ $('#client_id').change(function () {
 			$('.client-phone').html(json['phone_number']);
 		},
 		error: function error() {
-			console.log('error');
+			console.log('error retrieving client');
 		}
 	});
 });
 
-$('#datepicker input').datepicker({
-	todayBtn: "linked"
+$('#service_id').change(function () {
+	var value = this.value;
+	var source = '/getservice/' + value;
+	console.log(source);
+	$.ajax(source, {
+		success: function success(data) {
+			var json = JSON.parse(data);
+			$('.service-description').html(json['description']);
+			$('.service-rate').html(json['sale_price']);
+		},
+		error: function error() {
+			console.log('error retrieving service');
+		}
+	});
 });
 
 /***/ })

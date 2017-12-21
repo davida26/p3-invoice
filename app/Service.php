@@ -31,4 +31,12 @@ class Service extends Model
     protected $fillable = [
         'name', 'description', 'sale_price', 'list_price', 'cost',
     ];
+    /**
+    * The attributes that should be hidden for arrays.
+    *
+    * @var array
+    */
+    protected $hidden = [
+        'cost', 'created_at', 'updated_at', 'id',
+    ];
 }
