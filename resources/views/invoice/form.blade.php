@@ -20,10 +20,10 @@
 			</span>
 			@endif
 			<div class="client-data">
-				<p class="client-name"></p>
-				<p class="client-address"></p>
-				<p class="client-email"></p>
-				<p class="client-phone"></p>
+				<p class="client-name">@isset($invoice){{ $invoice->client['first_name'] }} {{ $invoice->client['last_name'] }}@endisset</p>
+				<p class="client-address">@isset($invoice){{ $invoice->client['address'] }}@endisset</p>
+				<p class="client-email">@isset($invoice){{ $invoice->client['email'] }}@endisset</p>
+				<p class="client-phone">@isset($invoice){{ $invoice->client['phone_number'] }}@endisset</p>
 			</div>
 		</div>
 	</div>
@@ -65,7 +65,7 @@
 						</div>
 					</td>
 					<td>
-						<p class="service-description"></p>
+						<p class="service-description">@isset($invoice){{ $selectedService }}@endisset</p>
 					</td>
 					<td>
 						<p class="service-rate"></p>
