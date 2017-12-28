@@ -66,7 +66,7 @@
 						</div>
 					</td>
 					<td class="col-md-5">
-						<p class="service-description">{{{ isset($invoice) ? $selectedService : 'Service Description'}}}</p>
+						<p class="service-description">{{{ isset($selectedService) ? $selectedServiceDescription : 'Service description placeholder.'}}}</p>
 					</td>
 					<td class="col-md-1">
 						<div class="form-group" > 
@@ -78,7 +78,7 @@
 						<p id="rate_1" class="service-rate">10.00</p>
 					</td>
 					<td class="col-md-1">
-						<p id="line_total_1" class="line-total"></p>
+						<p id="line_total_1" class="line-total">10.00</p>
 					</td>
 				</tr>
 			</tbody>

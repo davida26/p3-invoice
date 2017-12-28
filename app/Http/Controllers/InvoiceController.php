@@ -118,7 +118,6 @@ class InvoiceController extends Controller
 
         $selectedService = $invoice->services()->where('invoice_id', $invoice->id)->first();
 
-
         // to do - eager load and minimize clients to 1 query
         // dd($invoice->client->all());
 
@@ -133,7 +132,8 @@ class InvoiceController extends Controller
             'button' => $button,
             'invoice' => $invoice,
             'selectedClient' => $selectedClient,
-            'selectedService' => $selectedService->id
+            'selectedService' => $selectedService->id,
+            'selectedServiceDescription' => $selectedService->description
         ]);
     }
 

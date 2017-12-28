@@ -27,7 +27,7 @@ function sumLineTotals(){
 	var getQuantity = $('#quantity_1').val();
 	var getRate = $('#rate_1').html();
 	var lineTotal = getQuantity * parseFloat(getRate);
-	$('#line_total_1').html(lineTotal);
+	$('#line_total_1').html(lineTotal.toFixed(2));
 }
 
 //  get all line totals push them into an array and sum the values
@@ -39,7 +39,7 @@ function sumFinalTotal(){
 	for(var i=0; i<valuesArray.length; i++){
 		var sum =+ valuesArray[i];
 	}
-	$('#invoice_total').val(sum);
+	$('#invoice_total').val(sum.toFixed(2));
 }
 
 sumLineTotals();
