@@ -47,7 +47,7 @@
 					<th>Total</th>
 				</tr> 
 			</thead>
-			<tbody> 
+			<tbody id="services-list"> 
 				<tr>
 					<td class="col-md-4">
 						<div class="form-group{{ $errors->has('service_id') ? ' has-error' : '' }}" > 
@@ -83,7 +83,9 @@
 				</tr>
 			</tbody>
 		</table>
-		<p class="text-center add-service"><i class="fas fa-plus-circle"></i> Add Service</p>
+		<div class="text-center">
+			<p href="#" class="add-service btn btn-default"><i class="fas fa-plus-circle"></i> Add Service</p>
+		</div>
 	</div>
 </div>
 
@@ -96,7 +98,7 @@
 	<div class="col-md-4 due-date">
 		<h3>Due By</h3>
 		<div id="datepicker" class="form-group date {{ $errors->has('due_date') ? ' has-error' : '' }}">
-			<input type="text" class="form-control" placeholder="Select Due Date" name="due_date" value="{{ $invoice->due_date or old('due_date') }}">
+			<input type="text" class="form-control" placeholder="Select Due Date" name="due_date" value="{{ $dueDate or old('due_date') }}">
 			@if ($errors->has('due_date'))
 			<span class="help-block">
 				<strong>{{ $errors->first('due_date') }}</strong>

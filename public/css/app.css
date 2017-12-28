@@ -8549,9 +8549,8 @@ body {
   font-weight: bold;
 }
 
-.add-service {
-  margin: 0 auto 20px;
-  padding: 0;
+.service-items table {
+  margin-bottom: 5px;
 }
 
 .dash-items ol {

@@ -108,6 +108,9 @@ class InvoiceController extends Controller
      */
     public function edit(Invoice $invoice)
     {
+        // format the time from JS to date format in mysql
+        $dueDate = date('m/d/Y', strtotime($invoice->due_date));
+
         $setting = Configuration::find(1);
     
         $serviceList = Service::getServices();
@@ -133,7 +136,8 @@ class InvoiceController extends Controller
             'invoice' => $invoice,
             'selectedClient' => $selectedClient,
             'selectedService' => $selectedService->id,
-            'selectedServiceDescription' => $selectedService->description
+            'selectedServiceDescription' => $selectedService->description, 
+            'dueDate' => $dueDate
         ]);
     }
 
@@ -144,7 +148,7 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Invoice $invoice)
     {
         $this->validate($request, [
             'client_id' => 'required|numeric',
@@ -155,12 +159,16 @@ class InvoiceController extends Controller
 
         $data = $request->all();
 
-        $data = Invoice::create($data);
+        // take the JS data and transform to sql date
+        $data['due_date'] = date('Y-m-d', strtotime($data['due_date']));
 
-        $data->services()->sync($request->service_id);
+        $data = $invoice->update($data);
+
+        // pivot table, to be removed on next update
+        $invoice->services()->sync($request->service_id);
 
 
-        return redirect()->route('invoice.show', $data->id)->with('alert', 'Invoice Successfully Updated');
+        return redirect()->route('invoice.show', $data['id'])->with('alert', 'Invoice Successfully Updated');
     }
 
     /**
