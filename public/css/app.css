@@ -8549,6 +8549,11 @@ body {
   font-weight: bold;
 }
 
+.add-service {
+  margin: 0 auto 20px;
+  padding: 0;
+}
+
 .dash-items ol {
   padding-left: 20px;
 }

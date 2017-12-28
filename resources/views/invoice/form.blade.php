@@ -42,17 +42,18 @@
 				<tr>
 					<th>Name</th>
 					<th>Description</th>
-					<th>Rate</th>
 					<th>Qty</th>
+					<th>Rate</th>
+					<th>Total</th>
 				</tr> 
 			</thead>
 			<tbody> 
 				<tr>
-					<td>
+					<td class="col-md-4">
 						<div class="form-group{{ $errors->has('service_id') ? ' has-error' : '' }}" > 
 							<label for="service_id" class="control-label sr-only">Service</label>
 							<select id="service_id" class="form-control" name="service_id">
-								<option value="" selected="selected" disabled="disabled">Select a service</option>
+								<option value="1" selected="selected" disabled="disabled">Select a service</option>
 								@foreach ($serviceList as $id => $name)
 								<option value="{{ $id or old('id') }}" @isset($selectedService){{ $selectedService == $id ? 'selected="selected"' : '' }}@endisset {{ old('service_id') == $id ? 'selected="selected"' : '' }}>{{ $name or old('name') }}</option>
 								@endforeach
@@ -64,18 +65,25 @@
 							@endif
 						</div>
 					</td>
-					<td>
-						<p class="service-description">@isset($invoice){{ $selectedService }}@endisset</p>
+					<td class="col-md-5">
+						<p class="service-description">{{{ isset($invoice) ? $selectedService : 'Service Description'}}}</p>
 					</td>
-					<td>
-						<p class="service-rate"></p>
+					<td class="col-md-1">
+						<div class="form-group" > 
+							<label for="quantity" class="control-label sr-only">Service</label>
+							<input type="text" class="form-control text-center quantity" placeholder="1" name="quantity" id="quantity_1" value="1">
+						</div>
 					</td>
-					<td>
-						Variable
+					<td class="col-md-1">
+						<p id="rate_1" class="service-rate">10.00</p>
+					</td>
+					<td class="col-md-1">
+						<p id="line_total_1" class="line-total"></p>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<p class="text-center add-service"><i class="fas fa-plus-circle"></i> Add Service</p>
 	</div>
 </div>
 

@@ -1,7 +1,9 @@
+// Calendar picker - controller handles formatting
 $('#datepicker input').datepicker({
 	todayBtn: "linked"
 });
 
+// Get the client id and load its data into invoice edit
 $('#client_id').change(function (){
 	var value = this.value;
 	var source = '/client/' + value;
@@ -20,6 +22,35 @@ $('#client_id').change(function (){
 	});
 });
 
+// get the line total and sum it up
+function sumLineTotals(){
+	var getQuantity = $('#quantity_1').val();
+	var getRate = $('#rate_1').html();
+	var lineTotal = getQuantity * parseFloat(getRate);
+	$('#line_total_1').html(lineTotal);
+}
+
+//  get all line totals push them into an array and sum the values
+function sumFinalTotal(){
+	var valuesArray = [];
+	$('.line-total').each( function(){
+		valuesArray.push(parseFloat($(this).html()));
+	});
+	for(var i=0; i<valuesArray.length; i++){
+		var sum =+ valuesArray[i];
+	}
+	$('#invoice_total').val(sum);
+}
+
+sumLineTotals();
+sumFinalTotal();
+
+// when qty changes recalculate totals
+$('#quantity_1').change(function (){
+	sumLineTotals();
+	sumFinalTotal();
+})
+
 $('#service_id').change(function (){
 	var value = this .value;
 	var source = '/getservice/' + value;
@@ -29,6 +60,9 @@ $('#service_id').change(function (){
 			var json = JSON.parse(data);
 			$('.service-description').html(json['description']);
 			$('.service-rate').html(json['sale_price']);
+			sumLineTotals();
+			sumFinalTotal();
+
 		},
 		error: function() {
 			console.log('error retrieving service');
