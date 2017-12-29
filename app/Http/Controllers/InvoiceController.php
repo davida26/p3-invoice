@@ -37,6 +37,8 @@ class InvoiceController extends Controller
      */
     public function create()
     {
+        $serviceArray = json_decode(Invoice::find(1)->services);
+
         $setting = Configuration::find(1);
     
         $serviceList = Service::getServices();
@@ -90,6 +92,10 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $invoice = Invoice::with('client')->find($id);
+
+        // get all items in array
+        $serviceArray = json_decode($invoice->services, true);
+
         $setting = Configuration::find(1);
 
         $dueDate = date('F d, Y', strtotime($invoice->due_date));
@@ -97,7 +103,7 @@ class InvoiceController extends Controller
         if (!$invoice) {
             return redirect()->route('invoice.index')->with('alert', 'Invoice Not Found');
         }
-        return view('invoice.show', ["invoice" => $invoice, 'setting' => $setting, 'dueDate'=>$dueDate]);
+        return view('invoice.show', ["invoice" => $invoice, 'setting' => $setting, 'dueDate'=>$dueDate, 'services'=>$serviceArray]);
     }
 
     /**
@@ -136,7 +142,7 @@ class InvoiceController extends Controller
             'invoice' => $invoice,
             'selectedClient' => $selectedClient,
             'selectedService' => $selectedService->id,
-            'selectedServiceDescription' => $selectedService->description, 
+            'selectedServiceDescription' => $selectedService->description,
             'dueDate' => $dueDate
         ]);
     }
@@ -200,5 +206,11 @@ class InvoiceController extends Controller
     {
         $service = Service::find($id)->toJson();
         return $service;
+    }
+
+    public function getMultipleServices($array)
+    {
+        $services = Service::findMany($array)->toJson();
+        return $services;
     }
 }

@@ -37,6 +37,6 @@ class Service extends Model
     * @var array
     */
     protected $hidden = [
-        'cost', 'created_at', 'updated_at', 'id',
+        'cost', 'created_at', 'updated_at',
     ];
 }

@@ -40,16 +40,18 @@ Invoice A100{{ $invoice->id}}
                         <th>Name</th>
                         <th>Description</th>
                         <th>Rate</th>
-                        <th>Qty</th>
+                        <th class="text-center">Quantity</th>
+                        <th>Total</th>
                     </tr> 
                 </thead>
                 <tbody> 
-                     @foreach ($invoice->services as $service)
-                    <tr>
-                        <td>{{ $service->name }}</td>
-                        <td>{{ $service->description }}</td>
-                        <td>{{ $service->sale_price }}</td>
-                        <td>1</td>
+                    @foreach ($services as $service)
+                    <tr class="service_id" data-value="{{ $service['id'] }}">
+                        <td class="service_name_{{ $service['id']}}">{{ $service['name'] }}</td>
+                        <td class="service_description_{{ $service['id']}}">{{ $service['description']}}</td>
+                        <td class="service_rate_{{ $service['id']}}">{{ $service['sale_price']}}</td>
+                        <td class="text-center service_qty_{{ $service['id']}}">{{ $service['quantity']}}</td>
+                        <td class="service_total_{{ $service['id']}}">Total</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -82,3 +84,7 @@ Invoice A100{{ $invoice->id}}
     </div>
 </div>
 @endsection
+
+@push('scripts-footer')
+<script src="{{ asset('js/getService.js') }}"></script>
+@endpush

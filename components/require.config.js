@@ -7,10 +7,6 @@ var components = {
         {
             "name": "jquery",
             "main": "jquery-built.js"
-        },
-        {
-            "name": "bootstrap-datepicker",
-            "main": "bootstrap-datepicker-built.js"
         }
     ],
     "shim": {

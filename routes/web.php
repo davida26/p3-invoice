@@ -34,6 +34,7 @@ Route::resource('clients', 'ClientController' , ['except' => [
 
 Route::get('/client/{id}', 'InvoiceController@getClient');
 Route::get('/getservice/{id}', 'InvoiceController@getService');
+Route::get('/getservices/[array]', 'InvoiceController@getMultipleServices');
 
 /**
  * Service Routes
