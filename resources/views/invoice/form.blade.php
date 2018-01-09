@@ -51,8 +51,8 @@
 				<tr>
 					<td class="col-md-4">
 						<div class="form-group{{ $errors->has('service_id') ? ' has-error' : '' }}" > 
-							<label for="service_id" class="control-label sr-only">Service</label>
-							<select id="service_id" class="form-control" name="service_id">
+							<label for="service_id_1" class="control-label sr-only">Service</label>
+							<select id="service_id_1" class="form-control" name="service_id">
 								<option value="1" selected="selected" disabled="disabled">Select a service</option>
 								@foreach ($serviceList as $id => $name)
 								<option value="{{ $id or old('id') }}" @isset($selectedService){{ $selectedService == $id ? 'selected="selected"' : '' }}@endisset {{ old('service_id') == $id ? 'selected="selected"' : '' }}>{{ $name or old('name') }}</option>

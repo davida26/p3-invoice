@@ -52,7 +52,7 @@ $('#quantity_1').change(function (){
 })
 
 $('#service_id').change(function (){
-	var value = this .value;
+	var value = this.value;
 	var source = '/getservice/' + value;
 	console.log(source);
 	$.ajax(source, {
@@ -82,6 +82,6 @@ $('.add-service').on('click', function(e){
 	// Each element count will be the new index - can change count to 0;
 
 	$('#services-list').append(
-		'<tr><td class="col-md-4"><div class="form-group"><select id="service_id" name="service_id" class="form-control"><option value="1" selected="selected" disabled="disabled">Select a service</option> <option value="1">Consulting Fee</option> <option value="2">Design Fee</option> <option value="4">Development Fee</option> <option value="3">SEO Optimization</option></select></div></td> <td class="col-md-5"><p class="service-description">Service description placeholder.</p></td> <td class="col-md-1"><div class="form-group"><label for="quantity" class="control-label sr-only">Service</label> <input type="text" placeholder="1" name="quantity" id="quantity_1" value="1" class="form-control text-center quantity"></div></td> <td class="col-md-1"><p id="rate_1" class="service-rate">10.00</p></td> <td class="col-md-1"><p id="line_total_1" class="line-total">10.00</p></td></tr>'
+		'<tr id="' + startCount + '"><td class="col-md-4"><div class="form-group"><select id="service_id_' + startCount + '" class="form-control"><option value="1" selected="selected" disabled="disabled">Select a service</option> <option value="1">Consulting Fee</option> <option value="2">Design Fee</option> <option value="4">Development Fee</option> <option value="3">SEO Optimization</option></select></div></td> <td class="col-md-5"><p class="service-description_' + startCount + '">Service description placeholder.</p></td> <td class="col-md-1"><div class="form-group"><label for="quantity" class="control-label sr-only">Service</label> <input type="text" placeholder="1" name="quantity" id="quantity_' + startCount + '" value="1" class="form-control text-center quantity"></div></td> <td class="col-md-1"><p id="rate_' + startCount + '" class="service-rate">10.00</p></td> <td class="col-md-1"><p id="line_total_' + startCount + '" class="line-total">10.00</p></td></tr>'
 		);
 });
