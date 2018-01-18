@@ -20,7 +20,7 @@
 			</span>
 			@endif
 			<div class="client-data">
-				<p class="client-name">@isset($invoice){{ $invoice->client['first_name'] }} {{ $invoice->client['last_name'] }}@endisset</p>
+				<p class="client-name">@isset($invoice){{ $invoice->client['first_name'] or old("client['first_name]")}} {{ $invoice->client['last_name'] }}@endisset</p>
 				<p class="client-address">@isset($invoice){{ $invoice->client['address'] }}@endisset</p>
 				<p class="client-email">@isset($invoice){{ $invoice->client['email'] }}@endisset</p>
 				<p class="client-phone">@isset($invoice){{ $invoice->client['phone_number'] }}@endisset</p>
@@ -63,6 +63,7 @@
 								<strong>{{ $errors->first('service_id') }}</strong>
 							</span>
 							@endif
+							<input type="hidden" id="services" name="services">
 						</div>
 					</td>
 					<td class="col-md-5">
